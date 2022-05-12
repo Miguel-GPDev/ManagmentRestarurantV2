@@ -1,0 +1,164 @@
+{
+  "project_info": {
+    "project_number": "695521400704",
+    "firebase_url": "https://gestionrestaurantepruebas.firebaseio.com",
+    "project_id": "gestionrestaurantepruebas",
+    "storage_bucket": "gestionrestaurantepruebas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695521400704:android:8c4898a6c5f15632fb1365",
+        "android_client_info": {
+          "package_name": "com.example.gestionderestauranteenpruebas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695521400704-pn7p324jhka1662gf2au5d46lleh69bb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gestionderestauranteenpruebas",
+            "certificate_hash": "dec695a810295f5abfc63e261f3c73a432b6360e"
+          }
+        },
+        {
+          "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglKKwm6sjs-Qf7r66N4K5_ma7kdGQzDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695521400704:android:e2e13e3c2a064c4cfb1365",
+        "android_client_info": {
+          "package_name": "com.example.managmentrestarurantv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglKKwm6sjs-Qf7r66N4K5_ma7kdGQzDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695521400704:android:fd016e9a6adcd2cffb1365",
+        "android_client_info": {
+          "package_name": "com.example.managmentrestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglKKwm6sjs-Qf7r66N4K5_ma7kdGQzDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695521400704:android:55018c2f6aff7b69fb1365",
+        "android_client_info": {
+          "package_name": "com.example.managmentrestaurantv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglKKwm6sjs-Qf7r66N4K5_ma7kdGQzDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695521400704:android:b03871daf9f8bb98fb1365",
+        "android_client_info": {
+          "package_name": "com.example.restaurantmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglKKwm6sjs-Qf7r66N4K5_ma7kdGQzDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695521400704-jl44045h9kbeep1g6nvuv4g2mva6j120.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
