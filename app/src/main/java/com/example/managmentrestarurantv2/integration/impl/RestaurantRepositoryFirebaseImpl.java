@@ -93,4 +93,22 @@ public class RestaurantRepositoryFirebaseImpl implements RestaurantRepository {
                     }
                 });
     }
+
+    @Override
+    public void getListName(String idUsuario, CallBackFirebase callBackFirebase) {
+        mAuth = FirebaseAuth.getInstance();
+        String idUser = mAuth.getUid();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("Users").child(idUser)
+                .child("ListRestaurants")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        callBackFirebase.onSuccess(snapshot);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+    }
 }

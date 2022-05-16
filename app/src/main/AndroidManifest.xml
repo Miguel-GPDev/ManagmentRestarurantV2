@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ManagmentRestarurantV2">
         <activity
+            android:name=".view.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.DashBoardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.DashBoardWorkerActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

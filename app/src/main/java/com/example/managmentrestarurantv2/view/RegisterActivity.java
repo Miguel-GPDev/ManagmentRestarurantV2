@@ -25,32 +25,32 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //TODO Auto-generated method stub
-            /*
-            Enlazar los controles
-             */
+        buttonRegister = (Button) findViewById(R.id.buttonSignIn);
+        buttonBack = (Button)findViewById(R.id.buttonCancel);
+
+        editTextEmail1 = (EditText) findViewById(R.id.editTextEmail1);
+        editTextEmail2 = (EditText) findViewById(R.id.editTextEmail2);
+        editTextPassword1 = (EditText) findViewById(R.id.editTextPassword1);
+        editTextPassword2 = (EditText) findViewById(R.id.editTextPassword2);
+
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (extracted()){
                     User user = new User();
-                    user.setId_Usuario(editTextPassword2.getText().toString());
+                    user.setId(editTextPassword2.getText().toString());
                     user.setEmail(editTextEmail2.getText().toString());
                     user.setTelefono("000000000");
+                    user.setType("1");
+                    user.setVariable1("empty");
+                    user.setVariable2("empty");
 
                     UserController userController = new UserController();
-
-                    if (userController.createUser(user)){
-                        Intent intent = new Intent(RegisterActivity.this, DashBoardActivity.class);
-                        startActivity(intent);
-                    }else {
-                        //TODO
-                    }
-
+                    userController.createUser(user);
+                    onBackPressed();
                 }
             }
-
         });
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 
     private Boolean extracted() {

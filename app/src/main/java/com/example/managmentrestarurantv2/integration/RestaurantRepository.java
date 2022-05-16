@@ -8,4 +8,5 @@ public interface RestaurantRepository {
     Boolean update (String idRestaurante);
     Boolean delete (String idRestarurante);
     void getAll (String idUsuario, CallBackFirebase callBackFirebase);
+    void getListName (String idUsuario, CallBackFirebase callBackFirebase);
 }

@@ -1,7 +1,7 @@
 package com.example.managmentrestarurantv2.business.services.impl;
 
 import com.example.managmentrestarurantv2.business.model.Restaurant;
-import com.example.managmentrestarurantv2.business.services.RestaurantServices;
+import com.example.managmentrestarurantv2.business.model.User;import com.example.managmentrestarurantv2.business.services.RestaurantServices;
 import com.example.managmentrestarurantv2.integration.CallBackFirebase;
 import com.example.managmentrestarurantv2.integration.RestaurantRepository;
 import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
@@ -26,6 +26,7 @@ public class RestaurantFirebaseImpl implements RestaurantServices {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
                 restaurant[0] = dataSnapshot.getValue(Restaurant.class);
+
             }
 
             @Override
@@ -62,6 +63,7 @@ public class RestaurantFirebaseImpl implements RestaurantServices {
                     restaurant = dataSnapshot1.getValue(Restaurant.class);
                     restaurantList.add(restaurant);
                 }
+
             }
 
             @Override

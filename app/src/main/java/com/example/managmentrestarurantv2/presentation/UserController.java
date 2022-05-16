@@ -9,8 +9,8 @@ public class UserController {
 	
 	UserServices userServices = new UserFirebaseImpl();
 	
-	public Boolean createUser (User user) {
-		return null;
+	public void createUser (User user) {
+		userServices.create(user);
 	}
 	
 	public void deleteUser (String idUser) {
@@ -18,6 +18,6 @@ public class UserController {
 	}
 	
 	public User getUser (String idUser) {
-		return null;
+		return userServices.read(idUser);
 	}
 }

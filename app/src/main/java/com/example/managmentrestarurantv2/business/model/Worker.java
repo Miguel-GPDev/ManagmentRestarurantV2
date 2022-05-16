@@ -1,5 +1,7 @@
 package com.example.managmentrestarurantv2.business.model;
 
+import java.util.Objects;
+
 public class Worker extends User {
 	private static final long serialVersionUID = 1L;
 	
@@ -19,9 +21,11 @@ public class Worker extends User {
 	public Worker() {
 	}
 
-	public Worker(String nif, String name, String surname1, String surname2
-			, String address, int contract, String charge, String idRestaurant
-			, String state, String workPlace, String idBoss, String variable2) {
+	public Worker(String id, String email, String telefono, String type
+			, String variable1, String variable2) {
+		super(id, email, telefono, type, variable1, variable2);
+	}
+	public Worker(String nif, String name, String surname1, String surname2, String address, int contract, String charge, String idRestaurant, String state, String workPlace, String idBoss, String variable2) {
 		this.nif = nif;
 		this.name = name;
 		this.surname1 = surname1;
@@ -36,11 +40,11 @@ public class Worker extends User {
 		this.variable2 = variable2;
 	}
 
-	public Worker(String id_Usuario, String email, String telefono, String nif
-			, String name, String surname1, String surname2, String address
-			, int contract, String charge, String idRestaurant, String state
-			, String workPlace, String idBoss, String variable2) {
-		super(id_Usuario, email, telefono);
+	public Worker(String id, String email, String telefono, String type, String variable1
+			, String variable2, String nif, String name, String surname1, String surname2
+			, String address, int contract, String charge, String idRestaurant, String state
+			, String workPlace, String idBoss, String variable21) {
+		super(id, email, telefono, type, variable1, variable2);
 		this.nif = nif;
 		this.name = name;
 		this.surname1 = surname1;
@@ -52,11 +56,7 @@ public class Worker extends User {
 		this.state = state;
 		this.workPlace = workPlace;
 		this.idBoss = idBoss;
-		this.variable2 = variable2;
-	}
-
-	public Worker(String id_Usuario, String email, String telefono) {
-		super(id_Usuario, email, telefono);
+		this.variable2 = variable21;
 	}
 
 	public String getNif() {
@@ -147,17 +147,34 @@ public class Worker extends User {
 		this.idBoss = idBoss;
 	}
 
+	@Override
 	public String getVariable2() {
 		return variable2;
 	}
 
+	@Override
 	public void setVariable2(String variable2) {
 		this.variable2 = variable2;
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+		Worker worker = (Worker) o;
+		return Objects.equals(nif, worker.nif);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), nif);
+	}
+
+	@Override
 	public String toString() {
 		return "Worker{" +
+				super.toString() +
 				"nif='" + nif + '\'' +
 				", name='" + name + '\'' +
 				", surname1='" + surname1 + '\'' +
@@ -167,8 +184,8 @@ public class Worker extends User {
 				", charge='" + charge + '\'' +
 				", idRestaurant='" + idRestaurant + '\'' +
 				", state='" + state + '\'' +
-				", variable='" + workPlace + '\'' +
-				", variable1='" + idBoss + '\'' +
+				", workPlace='" + workPlace + '\'' +
+				", idBoss='" + idBoss + '\'' +
 				", variable2='" + variable2 + '\'' +
 				'}';
 	}

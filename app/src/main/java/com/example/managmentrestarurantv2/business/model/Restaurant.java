@@ -20,7 +20,7 @@ public class Restaurant implements Serializable {
 	private Map <String, Booking> listBookings;
 	private Map <String, Product> listProducts;
 	private String status;
-	private String variable1;
+	private String name;
 	private String variable2;
 	private String variable3;
 
@@ -29,10 +29,10 @@ public class Restaurant implements Serializable {
 	}
 
 	public Restaurant(String idRestaurant, String telephone, String email, Map<String, Table> listTables,
-			Map<String, Worker> listWorkers, Map<String, Kitchen> listKitchen, Map<String, Bar> lisBar,
-			Map<String, Client> listClient, Map<String, MenuRestaurant> listMenus,
-			Map<String, SupplierRestaurant> listSuppliers, Map<String, Booking> listBookings,
-			Map<String, Product> listProducts, String status, String variable1, String variable2, String variable3) {
+					  Map<String, Worker> listWorkers, Map<String, Kitchen> listKitchen, Map<String, Bar> lisBar,
+					  Map<String, Client> listClient, Map<String, MenuRestaurant> listMenus,
+					  Map<String, SupplierRestaurant> listSuppliers, Map<String, Booking> listBookings,
+					  Map<String, Product> listProducts, String status, String name, String variable2, String variable3) {
 		super();
 		this.idRestaurant = idRestaurant;
 		this.telephone = telephone;
@@ -47,7 +47,7 @@ public class Restaurant implements Serializable {
 		this.listBookings = listBookings;
 		this.listProducts = listProducts;
 		this.status = status;
-		this.variable1 = variable1;
+		this.name = name;
 		this.variable2 = variable2;
 		this.variable3 = variable3;
 	}
@@ -155,12 +155,12 @@ public class Restaurant implements Serializable {
 		this.status = status;
 	}
 
-	public String getVariable1() {
-		return variable1;
+	public String getName() {
+		return name;
 	}
 
-	public void setVariable1(String variable1) {
-		this.variable1 = variable1;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getVariable2() {
@@ -202,7 +202,7 @@ public class Restaurant implements Serializable {
 				+ ", listTables=" + listTables + ", listWorkers=" + listWorkers + ", listKitchen=" + listKitchen
 				+ ", lisBar=" + lisBar + ", listClient=" + listClient + ", listMenus=" + listMenus + ", listSuppliers="
 				+ listSuppliers + ", listBookings=" + listBookings + ", listProducts=" + listProducts + ", status="
-				+ status + ", variable1=" + variable1 + ", variable2=" + variable2 + ", variable3=" + variable3 + "]";
+				+ status + ", variable1=" + name + ", variable2=" + variable2 + ", variable3=" + variable3 + "]";
 	}
 
 }

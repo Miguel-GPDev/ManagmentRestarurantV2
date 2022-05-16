@@ -18,21 +18,18 @@ public class UserFirebaseImpl implements UserServices {
 	}
 
 	@Override
-	public Boolean create(User user) {
-
-		return userRepository.create(user);
+	public void create(User user) {
+		userRepository.create(user);
 	}
 
 	@Override
 	public void delete(String idUser) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void update(User user) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -42,6 +39,7 @@ public class UserFirebaseImpl implements UserServices {
 			@Override
 			public void onSuccess(DataSnapshot dataSnapshot) {
 				user[0] = dataSnapshot.getValue(User.class);
+
 			}
 
 			@Override
@@ -54,6 +52,6 @@ public class UserFirebaseImpl implements UserServices {
 
 			}
 		});
-		return user[0];
+		return null;
 	}
 }
