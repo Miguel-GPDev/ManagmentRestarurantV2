@@ -1,4 +1,4 @@
-package com.example.res.rest.business.model;
+package com.example.managmentrestarurantv2.business.model;
 
 public class Seat {
 }
