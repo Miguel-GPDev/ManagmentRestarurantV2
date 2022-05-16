@@ -1,4 +1,4 @@
-package com.example.res.rest.view.adapters;
+package com.example.managmentrestarurantv2.view.adapters;
 
 import android.annotation.SuppressLint;
 import android.text.Editable;
