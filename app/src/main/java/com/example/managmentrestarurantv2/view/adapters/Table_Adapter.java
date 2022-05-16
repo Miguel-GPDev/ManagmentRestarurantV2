@@ -1,4 +1,4 @@
-package com.example.res.rest.view.adapters;
+package com.example.managmentrestarurantv2.view.adapters;
 
 import android.annotation.SuppressLint;
 import android.text.Editable;
@@ -13,8 +13,9 @@ import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.res.R;
-import com.example.res.rest.business.model.Table;
+
+import com.example.managmentrestarurantv2.R;
+package com.example.managmentrestarurantv2.business.model.Table;
 
 import java.util.List;
 
