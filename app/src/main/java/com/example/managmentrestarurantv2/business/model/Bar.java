@@ -1,7 +1,6 @@
 package com.example.managmentrestarurantv2.business.model;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -15,7 +14,7 @@ public class Bar implements Serializable {
     int size;
     Map<String,Seat > seatList;
     String type; // interio o exterior
-    Boolean Booking;
+    Boolean booking;
     Boolean location; // true = Interior False = Exterior
     String variable2;
 
@@ -23,7 +22,7 @@ public class Bar implements Serializable {
     }
 
     public Bar(String idBar, Map<String, Count> listCount, Map<String
-            , com.example.res.rest.business.model.Booking> listBooking
+            , Booking> listBooking
             , Boolean union, int size, Map<String, Seat> seatList
             , String type, Boolean booking, Boolean location, String variable2) {
         this.idBar = idBar;
@@ -33,7 +32,7 @@ public class Bar implements Serializable {
         this.size = size;
         this.seatList = seatList;
         this.type = type;
-        Booking = booking;
+        this.booking = booking;
         this.location = location;
         this.variable2 = variable2;
     }
@@ -54,11 +53,11 @@ public class Bar implements Serializable {
         this.listCount = listCount;
     }
 
-    public Map<String, com.example.res.rest.business.model.Booking> getListBooking() {
+    public Map<String, Booking> getListBooking() {
         return listBooking;
     }
 
-    public void setListBooking(Map<String, com.example.res.rest.business.model.Booking> listBooking) {
+    public void setListBooking(Map<String, Booking> listBooking) {
         this.listBooking = listBooking;
     }
 
@@ -87,11 +86,11 @@ public class Bar implements Serializable {
     }
 
     public Boolean getBooking() {
-        return Booking;
+        return booking;
     }
 
     public void setBooking(Boolean booking) {
-        Booking = booking;
+        this.booking = booking;
     }
 
     public Boolean getLocation() {
@@ -140,7 +139,7 @@ public class Bar implements Serializable {
                 ", union=" + union +
                 ", size=" + size +
                 ", type='" + type + '\'' +
-                ", Booking=" + Booking +
+                ", Booking=" + booking +
                 ", location=" + location +
                 ", variable2='" + variable2 + '\'' +
                 '}';

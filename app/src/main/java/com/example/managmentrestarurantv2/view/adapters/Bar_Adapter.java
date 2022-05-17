@@ -14,9 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.res.R;
-import com.example.res.rest.business.model.Bar;
-
+import com.example.managmentrestarurantv2.R;
+import com.example.managmentrestarurantv2.business.model.Bar;
 
 import java.util.List;
 

@@ -13,23 +13,23 @@ public class Table implements Serializable {
     Boolean union;
     int size;
     String type; // interio o exterior
-    String variable;
-    String variable1;
+    Boolean booking;
+    Boolean location;
     String variable2;
 
     public Table() {
     }
 
     public Table(String idMesa, Map<String, Count> listCount, Map<String, Booking> listBooking
-            , Boolean union, int size, String type, String variable, String variable1, String variable2) {
+            , Boolean union, int size, String type, Boolean booking, Boolean location, String variable2) {
         this.idMesa = idMesa;
         this.listCount = listCount;
         this.listBooking = listBooking;
         this.union = union;
         this.size = size;
         this.type = type;
-        this.variable = variable;
-        this.variable1 = variable1;
+        this.booking = booking;
+        this.location = location;
         this.variable2 = variable2;
     }
 
@@ -81,20 +81,20 @@ public class Table implements Serializable {
         this.type = type;
     }
 
-    public String getVariable() {
-        return variable;
+    public Boolean getBooking() {
+        return booking;
     }
 
-    public void setVariable(String variable) {
-        this.variable = variable;
+    public void setBooking(Boolean booking) {
+        this.booking = booking;
     }
 
-    public String getVariable1() {
-        return variable1;
+    public Boolean getLocation() {
+        return location;
     }
 
-    public void setVariable1(String variable1) {
-        this.variable1 = variable1;
+    public void setLocation(Boolean location) {
+        this.location = location;
     }
 
     public String getVariable2() {
@@ -127,8 +127,8 @@ public class Table implements Serializable {
                 ", union=" + union +
                 ", size=" + size +
                 ", type='" + type + '\'' +
-                ", variable='" + variable + '\'' +
-                ", variable1='" + variable1 + '\'' +
+                ", variable='" + booking + '\'' +
+                ", variable1='" + location + '\'' +
                 ", variable2='" + variable2 + '\'' +
                 '}';
     }

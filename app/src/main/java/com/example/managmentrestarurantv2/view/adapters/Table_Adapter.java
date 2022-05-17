@@ -15,7 +15,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.managmentrestarurantv2.R;
-package com.example.managmentrestarurantv2.business.model.Table;
+import com.example.managmentrestarurantv2.business.model.Table;
+
 
 import java.util.List;
 
