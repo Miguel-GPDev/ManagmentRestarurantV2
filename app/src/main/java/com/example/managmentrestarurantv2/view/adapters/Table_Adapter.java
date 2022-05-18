@@ -114,7 +114,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             }
         });
 
-        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+        holder.imageViewDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -141,7 +141,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         Switch aSwitchUnion;
         Switch aSwitchLocation;
 
-        Button buttonDelete;
+        ImageView imageViewDelete;
 
         CardView cardViewTable;
 
