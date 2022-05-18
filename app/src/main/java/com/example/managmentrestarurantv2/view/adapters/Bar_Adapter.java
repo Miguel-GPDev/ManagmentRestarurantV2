@@ -113,7 +113,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             }
         });
 
-        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+        holder.imageViewDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -140,7 +140,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         Switch aSwitchUnion;
         Switch aSwitchLocation;
 
-        Button buttonDelete;
+        ImageView imageViewDelete;
 
         CardView cardViewTable;
         public barHolder(@NonNull View itemView) {
