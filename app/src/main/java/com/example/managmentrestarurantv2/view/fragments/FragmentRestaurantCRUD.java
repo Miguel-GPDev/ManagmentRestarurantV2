@@ -16,6 +16,42 @@ import com.example.managmentrestarurantv2.R;
  * create an instance of this fragment.
  */
 public class FragmentRestaurantCRUD extends Fragment {
+    Restaurant restaurant = new Restaurant();
+
+    Table_Adapter table_adapter;
+    Bar_Adapter bar_adapter;
+    Kitchen_Adapter kitchen_adapter;
+
+    List<Table> tableList = new ArrayList<>();
+    List<Kitchen> kitchenList = new ArrayList<>();
+    List<Bar> barList = new ArrayList<>();
+
+    EditText editTextIdTable;
+    EditText editTextTableNPerson;
+    EditText editTextIdBar;
+    EditText editTextNSeats;
+    EditText editTextIdKitchen;
+    EditText editTextNWorkers;
+
+    Switch aSwitchTableUnion;
+    Switch aSwitchTableBooking;
+    Switch aSwitchTableLocation;
+    Switch aSwitchKitchenOpen;
+    Switch aSwitchBarUnion;
+    Switch aSwitchBarLocation;
+    Switch aSwitchBarBooking;
+
+
+    ImageView imageViewAddTable;
+    ImageView imageViewDeleteTable;
+    ImageView imageViewAddKitchen;
+    ImageView imageViewDeleteKitchen;
+    ImageView imageViewAddBar;
+    ImageView imageViewDeleteBar;
+
+    RecyclerView recyclerViewTable;
+    RecyclerView recyclerViewBar;
+    RecyclerView recyclerViewKitchen;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,11 +93,57 @@ public class FragmentRestaurantCRUD extends Fragment {
         }
     }
 
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_restaurant_c_r_u_d, container, false);
+
+        //TODO ENLAZAR CONTROLES;
+
+        imageViewAddTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Count> countList = new HashMap<>();
+                Map<String, Booking> bookinList = new HashMap<>();
+                Table table = new Table(
+                        editTextIdTable.getText().toString()
+                        ,countList
+                        ,bookinList
+                        ,aSwitchTableUnion.isChecked()
+                        ,Integer.parseInt(editTextTableNPerson.getText().toString())
+                        ,"null"
+                        ,aSwitchTableBooking.isChecked()
+                        ,aSwitchTableLocation.isChecked()
+                        ,"null"
+                );
+                addToTableList(table);
+            }
+        });
+        
+        
         return v;
     }
+
+    private void addToTableList(Table table) {
+        tableList.add(table);
+        uploadAdapterTable(tableList);
+    }
+
+    private void uploadAdapterTable(List<Table> tableList) {
+        recyclerViewTable.setLayoutManager(new LinearLayoutManager(getContext()
+                ,LinearLayoutManager.VERTICAL
+                ,false));
+        table_adapter = new Table_Adapter(tableList);
+        recyclerViewTable.setAdapter(table_adapter);
+    }
+    
 }
