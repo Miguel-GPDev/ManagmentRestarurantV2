@@ -41,7 +41,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
 
     @Override
     public void onBindViewHolder(@NonNull Table_Adapter.tableViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Table table = new Table();
+        Table table = tableList.get(position);
 
         holder.editTextSize.setText(String.valueOf(table.getSize()));
         holder.editTextIdtable.setText(table.getIdMesa());
@@ -64,8 +64,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    tableList.get(position -1 ).setIdMesa(holder.editTextIdtable.getText().toString());
-                    tableList.notifyAll();
+                    tableList.get(position).setIdMesa(holder.editTextIdtable.getText().toString());
                 }catch (Exception e){
 
                 }
@@ -85,7 +84,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    tableList.get(position - 1).setSize(Integer.valueOf(holder.editTextSize.getText().toString()));
+                    tableList.get(position).setSize(Integer.valueOf(holder.editTextSize.getText().toString()));
                     tableList.notifyAll();
                 }catch (Exception e){
 
@@ -96,22 +95,19 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         holder.aSwitchBooking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                tableList.get(position -1 ).setBooking(holder.aSwitchBooking.isChecked());
-                tableList.notifyAll();
+                tableList.get(position).setBooking(holder.aSwitchBooking.isChecked());
             }
         });
         holder.aSwitchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                tableList.get(position -1).setLocation(holder.aSwitchLocation.isChecked());
-                tableList.notifyAll();
+                tableList.get(position).setLocation(holder.aSwitchLocation.isChecked());
             }
         });
         holder.aSwitchUnion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                tableList.get(position -1).setUnion(holder.aSwitchUnion.isChecked());
-                tableList.notifyAll();
+                tableList.get(position).setUnion(holder.aSwitchUnion.isChecked());
             }
         });
 
@@ -119,9 +115,9 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             @Override
             public void onClick(View v) {
                 try {
-                    tableList.remove(position -1);
-                    notifyItemRemoved(position -1);
-                    notifyItemRangeChanged(position -1, getItemCount());
+                    tableList.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, getItemCount());
                 }catch (Exception e){
                     //TODO
                 }
@@ -148,7 +144,15 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
 
         public tableViewHolder(@NonNull View itemView) {
             super(itemView);
-            editTextIdtable = (EditText) itemView.findViewById(R.id.)
+            editTextIdtable = (EditText) itemView.findViewById(R.id.editTextIdTable);
+            editTextSize = (EditText) itemView.findViewById(R.id.editTextNpersonTable);
+
+            aSwitchBooking = (Switch) itemView.findViewById(R.id.switchBookingTable);
+            aSwitchLocation = (Switch) itemView.findViewById(R.id.switchLocationTable);
+            aSwitchUnion = (Switch) itemView.findViewById(R.id.switchUnionTable);
+
+            imageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewTrashTable);
+
         }
     }
 

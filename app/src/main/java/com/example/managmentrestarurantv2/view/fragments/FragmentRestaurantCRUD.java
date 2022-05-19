@@ -123,11 +123,10 @@ public class FragmentRestaurantCRUD extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_restaurant_c_r_u_d, container, false);
 
         imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
-        imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTable);
+        imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTableDashBoard);
 
         editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTableDashBoard);
         editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNpersonDashBoard);
@@ -145,11 +144,11 @@ public class FragmentRestaurantCRUD extends Fragment {
                 Map<String, Count> countList = new HashMap<>();
                 Map<String, Booking> bookinList = new HashMap<>();
                 Table table = new Table(
-                        editTextIdTable.getText().toString()
+                        noEmpty(editTextIdTable.getText().toString())
                         ,countList
                         ,bookinList
                         ,aSwitchTableUnion.isChecked()
-                        ,Integer.parseInt(editTextTableNPerson.getText().toString())
+                        ,checkNumber(editTextTableNPerson.getText().toString())
                         ,"null"
                         ,aSwitchTableBooking.isChecked()
                         ,aSwitchTableLocation.isChecked()
@@ -175,5 +174,22 @@ public class FragmentRestaurantCRUD extends Fragment {
         table_adapter = new Table_Adapter(tableList);
         recyclerViewTable.setAdapter(table_adapter);
     }
-    
+    private Integer checkNumber(String number){
+        Integer num;
+        try {
+            num = Integer.parseInt(number);
+        }catch (Exception e){
+            num = 0;
+        }
+        return  num;
+    }
+    private String noEmpty(String id){
+        String validId;
+        if (id != null && id != "" ){
+            validId = id;
+        }else {
+            validId = null;
+        }
+        return  validId;
+    }
 }
