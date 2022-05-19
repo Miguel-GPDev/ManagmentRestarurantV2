@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -42,7 +43,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
     public void onBindViewHolder(@NonNull Table_Adapter.tableViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Table table = new Table();
 
-        holder.editTextSize.setText(table.getSize());
+        holder.editTextSize.setText(String.valueOf(table.getSize()));
         holder.editTextIdtable.setText(table.getIdMesa());
 
         holder.aSwitchBooking.setChecked(table.getBooking());
@@ -147,7 +148,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
 
         public tableViewHolder(@NonNull View itemView) {
             super(itemView);
-            //TODO ENLAZAR LOS CONTROLES
+            editTextIdtable = (EditText) itemView.findViewById(R.id.)
         }
     }
 

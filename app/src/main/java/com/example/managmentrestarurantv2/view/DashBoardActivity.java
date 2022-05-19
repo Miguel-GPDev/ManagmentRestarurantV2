@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 
 import com.example.managmentrestarurantv2.R;
@@ -15,6 +18,7 @@ import com.example.managmentrestarurantv2.integration.CallBackFirebase;
 import com.example.managmentrestarurantv2.integration.RestaurantRepository;
 import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 
+import com.example.managmentrestarurantv2.view.fragments.FragmentRestaurantCRUD;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 
@@ -52,7 +56,12 @@ public class DashBoardActivity extends AppCompatActivity {
         imageViewCreateRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                FragmentRestaurantCRUD fragmentRestaurantCRUD = new FragmentRestaurantCRUD();
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.ConstraintLayoutDashBoard,fragmentRestaurantCRUD);
+                fragmentTransaction.commit();
             }
         });
     }

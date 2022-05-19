@@ -3,12 +3,31 @@ package com.example.managmentrestarurantv2.view.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Switch;
 
 import com.example.managmentrestarurantv2.R;
+import com.example.managmentrestarurantv2.business.model.Bar;
+import com.example.managmentrestarurantv2.business.model.Booking;
+import com.example.managmentrestarurantv2.business.model.Count;
+import com.example.managmentrestarurantv2.business.model.Kitchen;
+import com.example.managmentrestarurantv2.business.model.Restaurant;
+import com.example.managmentrestarurantv2.business.model.Table;
+import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
+import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
+import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -107,7 +126,18 @@ public class FragmentRestaurantCRUD extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_restaurant_c_r_u_d, container, false);
 
-        //TODO ENLAZAR CONTROLES;
+        imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
+        imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTable);
+
+        editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTableDashBoard);
+        editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNpersonDashBoard);
+
+        aSwitchTableBooking = (Switch) v.findViewById(R.id.switchBookingTableDashBoard);
+        aSwitchTableLocation = (Switch) v.findViewById(R.id.switchLocationTableDashBoard);
+        aSwitchTableUnion = (Switch) v.findViewById(R.id.switchUnionTableDashBoard);
+
+        recyclerViewTable = (RecyclerView) v.findViewById(R.id.RVTable);
+
 
         imageViewAddTable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,10 +155,10 @@ public class FragmentRestaurantCRUD extends Fragment {
                         ,aSwitchTableLocation.isChecked()
                         ,"null"
                 );
+                recyclerViewTable.setVisibility(View.VISIBLE);
                 addToTableList(table);
             }
         });
-        
         
         return v;
     }

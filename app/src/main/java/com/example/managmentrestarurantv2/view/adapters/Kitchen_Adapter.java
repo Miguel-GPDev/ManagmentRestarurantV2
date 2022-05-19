@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.res.R;
-import com.example.res.rest.business.model.Kitchen;
+
+
+import com.example.managmentrestarurantv2.R;
+import com.example.managmentrestarurantv2.business.model.Kitchen;
 
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
     @Override
     public Kitchen_Adapter.kitchenHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.kitchen_view
+                .inflate(R.layout.view_kitchen
                         , parent
                         , false);
         kitchenHolder holder = new kitchenHolder(v);

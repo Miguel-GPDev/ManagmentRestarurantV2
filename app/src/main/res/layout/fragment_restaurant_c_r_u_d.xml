@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,7 +23,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -143,26 +144,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/RVTable">
 
-                        <ImageView
-                            android:id="@+id/imageView18"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="5dp"
-                            android:src="@drawable/close"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageView17"
-                            app:layout_constraintTop_toBottomOf="@+id/cardViewTable" />
-
-                        <ImageView
-                            android:id="@+id/imageView17"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="108dp"
-                            android:layout_marginTop="5dp"
-                            android:src="@drawable/add"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cardViewTable" />
-
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cardViewTable"
                             android:layout_width="match_parent"
@@ -176,6 +157,46 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <View
+                                        android:id="@+id/divider"
+                                        android:layout_width="2dp"
+                                        android:layout_height="0dp"
+                                        android:background="?android:attr/listDivider"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toStartOf="@+id/imageViewTrashTable"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <ImageView
+                                        android:id="@+id/imageView17AddTable"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginEnd="7dp"
+                                        android:src="@drawable/add"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <ImageView
+                                        android:id="@+id/imageViewTrashTable"
+                                        android:layout_width="47dp"
+                                        android:layout_height="37dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginEnd="5dp"
+                                        android:layout_marginBottom="5dp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView17AddTable"
+                                        app:srcCompat="@drawable/trash" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
                                 <ImageView
                                     android:id="@+id/imageView4"
                                     android:layout_width="25dp"
@@ -183,7 +204,7 @@
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="16dp"
                                     android:layout_marginEnd="1dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextXperson"
+                                    app:layout_constraintEnd_toStartOf="@+id/editTextNpersonDashBoard"
                                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:srcCompat="@drawable/letra_x" />
@@ -194,7 +215,7 @@
                                     android:layout_height="25dp"
                                     android:layout_marginStart="4dp"
                                     android:layout_marginTop="16dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextIdTable"
+                                    app:layout_constraintEnd_toStartOf="@+id/editTextIdTableDashBoard"
                                     app:layout_constraintStart_toEndOf="@+id/imageView"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:srcCompat="@drawable/igual" />
@@ -204,7 +225,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_marginStart="20dp"
-                                    app:layout_constraintStart_toEndOf="@+id/editTextIdTable"
+                                    app:layout_constraintStart_toEndOf="@+id/editTextIdTableDashBoard"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:srcCompat="@drawable/personas" />
 
@@ -218,7 +239,7 @@
                                     app:srcCompat="@drawable/table_round" />
 
                                 <EditText
-                                    android:id="@+id/editTextIdTable"
+                                    android:id="@+id/editTextIdTableDashBoard"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_marginStart="2dp"
@@ -226,13 +247,13 @@
                                     android:layout_marginEnd="2dp"
                                     android:ems="10"
                                     android:inputType="textPersonName"
-                                    app:layout_constraintEnd_toStartOf="@+id/switchUnionTable"
-                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTable"
+                                    app:layout_constraintEnd_toStartOf="@+id/switchUnionTableDashBoard"
+                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
                                     app:layout_constraintTop_toTopOf="parent"
                                     tools:ignore="SpeakableTextPresentCheck" />
 
                                 <EditText
-                                    android:id="@+id/editTextXperson"
+                                    android:id="@+id/editTextNpersonDashBoard"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_marginTop="3dp"
@@ -244,7 +265,7 @@
                                     tools:ignore="SpeakableTextPresentCheck" />
 
                                 <Switch
-                                    android:id="@+id/switchBookingTable"
+                                    android:id="@+id/switchBookingTableDashBoard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -256,38 +277,29 @@
                                     app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                                 <Switch
-                                    android:id="@+id/switchLocationTable"
+                                    android:id="@+id/switchLocationTableDashBoard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="28dp"
+                                    android:layout_marginStart="25dp"
                                     android:checked="true"
                                     android:minHeight="48dp"
                                     android:text="Interior"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/switchUnionTable"
-                                    app:layout_constraintTop_toBottomOf="@+id/editTextXperson" />
+                                    app:layout_constraintStart_toEndOf="@+id/switchUnionTableDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/editTextNpersonDashBoard" />
 
                                 <Switch
-                                    android:id="@+id/switchUnionTable"
+                                    android:id="@+id/switchUnionTableDashBoard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="28dp"
+                                    android:layout_marginStart="25dp"
                                     android:checked="true"
                                     android:minHeight="48dp"
                                     android:text="Union"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTable"
+                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
                                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-                                <ImageView
-                                    android:id="@+id/imageViewTrashTable"
-                                    android:layout_width="47dp"
-                                    android:layout_height="37dp"
-                                    android:layout_marginEnd="4dp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/trash" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
 
