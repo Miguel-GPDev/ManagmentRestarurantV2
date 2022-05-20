@@ -143,12 +143,17 @@ public class FragmentRestaurantCRUD extends Fragment {
             public void onClick(View v) {
                 Map<String, Count> countList = new HashMap<>();
                 Map<String, Booking> bookinList = new HashMap<>();
+                
+                if (noEmpty(editTextIdTable.getText().toString()) && checkNumber(editTextTableNPerson.getText().toString()){
+                
+                
+                }
                 Table table = new Table(
                         noEmpty(editTextIdTable.getText().toString())
                         ,countList
                         ,bookinList
                         ,aSwitchTableUnion.isChecked()
-                        ,checkNumber(editTextTableNPerson.getText().toString())
+                        ,Integer.parseInt(editTextTableNPerson.getText().toString())
                         ,"null"
                         ,aSwitchTableBooking.isChecked()
                         ,aSwitchTableLocation.isChecked()
@@ -174,21 +179,22 @@ public class FragmentRestaurantCRUD extends Fragment {
         table_adapter = new Table_Adapter(tableList);
         recyclerViewTable.setAdapter(table_adapter);
     }
-    private Integer checkNumber(String number){
-        Integer num;
+    private Boolean checkNumber(String number){
+        Boolean valid;
         try {
-            num = Integer.parseInt(number);
+            Integer.parseInt(number);
+            valid = true;
         }catch (Exception e){
-            num = 0;
+            valid = false;
         }
-        return  num;
+        return  valid;
     }
-    private String noEmpty(String id){
-        String validId;
+    private Boolean noEmpty(String id){
+        Boolean validId;
         if (id != null && id != "" ){
-            validId = id;
+            validId = true;
         }else {
-            validId = null;
+            validId = false;
         }
         return  validId;
     }
