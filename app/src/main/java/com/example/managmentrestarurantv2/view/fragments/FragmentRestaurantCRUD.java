@@ -144,6 +144,7 @@ public class FragmentRestaurantCRUD extends Fragment {
                 Map<String, Count> countList = new HashMap<>();
                 Map<String, Booking> bookinList = new HashMap<>();
                 
+                
                 if (noEmpty(editTextIdTable.getText().toString()) && checkNumber(editTextTableNPerson.getText().toString()){
                 
                 
@@ -191,7 +192,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     }
     private Boolean noEmpty(String id){
         Boolean validId;
-        if (id != null && id != "" ){
+       if (id != null && id.trim().length() > 0){
             validId = true;
         }else {
             validId = false;
