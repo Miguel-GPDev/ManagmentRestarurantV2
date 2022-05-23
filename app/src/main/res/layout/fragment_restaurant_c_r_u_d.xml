@@ -1,321 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.fragments.FragmentRestaurantCRUD">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".view.fragments.FragmentRestaurantCRUD">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck">
+            android:background="@color/white">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Escribe el nombre"
-                        android:inputType="textPersonName"
-                        android:minHeight="48dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                            android:id="@+id/editTextTextPersonName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="Escribe el nombre"
+                            android:inputType="textPersonName"
+                            android:minHeight="48dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                     <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="152dp"
-                        android:layout_height="37dp"
-                        android:text="RESTAURANTE :"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                            android:id="@+id/textView"
+                            android:layout_width="152dp"
+                            android:layout_height="37dp"
+                            android:text="RESTAURANTE :"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewTableExpand"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:clickable="true"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.05"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                            android:id="@+id/cardViewTableExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:clickable="true"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="2dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.05"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imageView9"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutTableExpand"
-                                app:layout_constraintStart_toStartOf="@+id/linearLayoutTableExpand"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutTableExpand"
-                                app:srcCompat="@drawable/table" />
+                                    android:id="@+id/imageView9"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutTableExpand"
+                                    app:layout_constraintStart_toStartOf="@+id/linearLayoutTableExpand"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutTableExpand"
+                                    app:srcCompat="@drawable/table" />
 
                             <LinearLayout
-                                android:id="@+id/linearLayoutTableExpand"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:id="@+id/textView16Table"
+                                    android:id="@+id/linearLayoutTableExpand"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:padding="15dp"
-                                    android:text="MESAS"
-                                    android:textAlignment="center" />
+                                    android:orientation="horizontal"
+                                    android:padding="10dp">
+
+                                <TextView
+                                        android:id="@+id/textView16Table"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="15dp"
+                                        android:text="MESAS"
+                                        android:textAlignment="center" />
 
                             </LinearLayout>
 
                             <ImageView
-                                android:id="@+id/imageView5TableExpand"
-                                android:layout_width="76dp"
-                                android:layout_height="51dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="8dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutTableExpand"
-                                app:layout_constraintEnd_toEndOf="@+id/linearLayoutTableExpand"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView9"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutTableExpand"
-                                app:srcCompat="@drawable/down_arrow" />
+                                    android:id="@+id/imageView5TableExpand"
+                                    android:layout_width="76dp"
+                                    android:layout_height="51dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutTableExpand"
+                                    app:layout_constraintEnd_toEndOf="@+id/linearLayoutTableExpand"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutTableExpand"
+                                    app:srcCompat="@drawable/down_arrow" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/RVTable"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutTable"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.87"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cardViewTableExpand">
+                            android:id="@+id/RVTable"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutTable"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.87"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cardViewTableExpand">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
                     <View
-                        android:id="@+id/divider2"
-                        android:layout_width="200dp"
-                        android:layout_height="2dp"
-                        android:layout_margin="5dp"
-                        android:background="?android:attr/listDivider"
-                        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutTable"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RVTable" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayoutTable"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RVTable">
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/cardViewTable"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/divider2"
+                            android:layout_width="200dp"
+                            android:layout_height="2dp"
                             android:layout_margin="5dp"
+                            android:background="?android:attr/listDivider"
+                            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutTable"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:layout_constraintTop_toBottomOf="@+id/RVTable" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayoutTable"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RVTable">
+
+                        <androidx.cardview.widget.CardView
+                                android:id="@+id/cardViewTable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent">
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="0dp"
-                                    android:layout_marginStart="10dp"
-                                    android:background="@color/teal_200"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="1.0"
-                                    app:layout_constraintStart_toEndOf="@+id/switchLocationTableDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent">
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginStart="10dp"
+                                        android:background="@color/teal_200"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/switchLocationTableDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent">
 
                                     <View
-                                        android:id="@+id/divider"
-                                        android:layout_width="2dp"
-                                        android:layout_height="0dp"
-                                        android:background="?android:attr/listDivider"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toStartOf="@+id/imageViewTrashTableDashBoard"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                            android:id="@+id/divider"
+                                            android:layout_width="2dp"
+                                            android:layout_height="0dp"
+                                            android:background="?android:attr/listDivider"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toStartOf="@+id/imageViewTrashTableDashBoard"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
                                     <ImageView
-                                        android:id="@+id/imageView17AddTable"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:background="@color/teal_200"
-                                        android:padding="2dp"
-                                        android:src="@drawable/add"
-                                        app:layout_constraintBottom_toTopOf="@+id/imageViewTrashTableDashBoard"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.38"
-                                        app:layout_constraintStart_toEndOf="@+id/divider"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                            android:id="@+id/imageView17AddTable"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:background="@color/teal_200"
+                                            android:padding="2dp"
+                                            android:src="@drawable/add"
+                                            app:layout_constraintBottom_toTopOf="@+id/imageViewTrashTableDashBoard"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintHorizontal_bias="0.38"
+                                            app:layout_constraintStart_toEndOf="@+id/divider"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
                                     <ImageView
-                                        android:id="@+id/imageViewTrashTableDashBoard"
-                                        android:layout_width="47dp"
-                                        android:layout_height="47dp"
-                                        android:background="#FF5722"
-                                        android:padding="2dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:srcCompat="@drawable/trash" />
+                                            android:id="@+id/imageViewTrashTableDashBoard"
+                                            android:layout_width="47dp"
+                                            android:layout_height="47dp"
+                                            android:background="#FF5722"
+                                            android:padding="2dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:srcCompat="@drawable/trash" />
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <ImageView
-                                    android:id="@+id/imageView4"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="16dp"
-                                    android:layout_marginEnd="1dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextNpersonDashBoard"
-                                    app:layout_constraintStart_toEndOf="@+id/imageView2"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/letra_x" />
+                                        android:id="@+id/imageView4"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginEnd="1dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextNpersonDashBoard"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/letra_x" />
 
                                 <ImageView
-                                    android:id="@+id/imageView3"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_marginStart="4dp"
-                                    android:layout_marginTop="16dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextIdTableDashBoard"
-                                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/igual" />
+                                        android:id="@+id/imageView3"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_marginTop="16dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextIdTableDashBoard"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/igual" />
 
                                 <ImageView
-                                    android:id="@+id/imageView2"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginStart="20dp"
-                                    app:layout_constraintStart_toEndOf="@+id/editTextIdTableDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/personas" />
+                                        android:id="@+id/imageView2"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="20dp"
+                                        app:layout_constraintStart_toEndOf="@+id/editTextIdTableDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/personas" />
 
                                 <ImageView
-                                    android:id="@+id/imageView"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginStart="16dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/table_round" />
+                                        android:id="@+id/imageView"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="16dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/table_round" />
 
                                 <EditText
-                                    android:id="@+id/editTextIdTableDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginEnd="2dp"
-                                    android:ems="10"
-                                    android:inputType="textPersonName"
-                                    app:layout_constraintEnd_toStartOf="@+id/switchUnionTableDashBoard"
-                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="SpeakableTextPresentCheck" />
+                                        android:id="@+id/editTextIdTableDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="2dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="2dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintEnd_toStartOf="@+id/switchUnionTableDashBoard"
+                                        app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck" />
 
                                 <EditText
-                                    android:id="@+id/editTextNpersonDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginEnd="80dp"
-                                    android:ems="10"
-                                    android:inputType="textPersonName"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="SpeakableTextPresentCheck" />
+                                        android:id="@+id/editTextNpersonDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="80dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck" />
 
                                 <Switch
-                                    android:id="@+id/switchBookingTableDashBoard"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
-                                    android:checked="true"
-                                    android:minHeight="48dp"
-                                    android:text="Reservas"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                                        android:id="@+id/switchBookingTableDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Reservas"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                                 <Switch
-                                    android:id="@+id/switchLocationTableDashBoard"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="25dp"
-                                    android:checked="true"
-                                    android:minHeight="48dp"
-                                    android:text="Interior"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/switchUnionTableDashBoard"
-                                    app:layout_constraintTop_toBottomOf="@+id/editTextNpersonDashBoard" />
+                                        android:id="@+id/switchLocationTableDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="25dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Interior"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/switchUnionTableDashBoard"
+                                        app:layout_constraintTop_toBottomOf="@+id/editTextNpersonDashBoard" />
 
                                 <Switch
-                                    android:id="@+id/switchUnionTableDashBoard"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="25dp"
-                                    android:checked="true"
-                                    android:minHeight="48dp"
-                                    android:text="Union"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                                        android:id="@+id/switchUnionTableDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="25dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Union"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -325,293 +325,481 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewBarExpand"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:clickable="true"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.05"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                            android:id="@+id/cardViewBarExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:clickable="true"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="2dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.05"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
 
                             <ImageView
-                                android:id="@+id/imageView9Bar"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutBarExpand"
-                                app:layout_constraintStart_toStartOf="@+id/linearLayoutBarExpand"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutBarExpand"
-                                app:srcCompat="@drawable/bar_counter" />
+                                    android:id="@+id/imageView9BarDashBoard"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutBarExpand"
+                                    app:layout_constraintStart_toStartOf="@+id/linearLayoutBarExpand"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutBarExpand"
+                                    app:srcCompat="@drawable/bar_counter" />
 
                             <LinearLayout
-                                android:id="@+id/linearLayoutBarExpand"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:id="@+id/textView16Bars"
+                                    android:id="@+id/linearLayoutBarExpand"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:padding="15dp"
-                                    android:text="BARRAS"
-                                    android:textAlignment="center" />
+                                    android:orientation="horizontal"
+                                    android:padding="10dp">
+
+                                <TextView
+                                        android:id="@+id/textView16BarDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="15dp"
+                                        android:text="BARRAS"
+                                        android:textAlignment="center" />
 
                             </LinearLayout>
 
                             <ImageView
-                                android:id="@+id/imageView5BarExpand"
-                                android:layout_width="76dp"
-                                android:layout_height="51dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="8dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutBarExpand"
-                                app:layout_constraintEnd_toEndOf="@+id/linearLayoutBarExpand"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView9Bar"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutBarExpand"
-                                app:srcCompat="@drawable/down_arrow" />
+                                    android:id="@+id/imageView5BarExpand"
+                                    android:layout_width="76dp"
+                                    android:layout_height="51dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutBarExpand"
+                                    app:layout_constraintEnd_toEndOf="@+id/linearLayoutBarExpand"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView9BarDashBoard"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutBarExpand"
+                                    app:srcCompat="@drawable/down_arrow" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/RVBar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.87"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cardViewBarExpand">
+                            android:id="@+id/RVBar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.87"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cardViewBarExpand">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayoutBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RVBar">
-
-                        <Button
-                            android:id="@+id/button2LoadBar"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/constraintLayoutBar"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="88dp"
-                            android:text="Load"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editText11NBar"
-                            app:layout_constraintVertical_bias="0.0" />
-
-                        <Button
-                            android:id="@+id/button12BarCancel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="52dp"
-                            android:text="Cancela"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/button2LoadBar"
-                            app:layout_constraintTop_toBottomOf="@+id/switch11Barra"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                        <Switch
-                            android:id="@+id/switch11Barra"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="48dp"
-                            android:minHeight="48dp"
-                            android:text="Sin Mesas"
+                            android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <EditText
-                            android:id="@+id/editText11NBar"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            app:layout_constraintStart_toEndOf="@+id/textView2Bar"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="SpeakableTextPresentCheck" />
-
-                        <TextView
-                            android:id="@+id/textView2Bar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="56dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Nº Mesas : "
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toBottomOf="@+id/RVBar">
+                        <androidx.cardview.widget.CardView
+                                android:id="@+id/cardViewBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginStart="10dp"
+                                        android:background="@color/teal_200"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/switchLocationBarDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                    <View
+                                            android:id="@+id/dividerBarDashBoard"
+                                            android:layout_width="2dp"
+                                            android:layout_height="0dp"
+                                            android:background="?android:attr/listDivider"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toStartOf="@+id/imageViewTrashBarDashBoard"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <ImageView
+                                            android:id="@+id/imageView17AddBarDashBoard"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:background="@color/teal_200"
+                                            android:padding="2dp"
+                                            android:src="@drawable/add"
+                                            app:layout_constraintBottom_toTopOf="@+id/imageViewTrashBarDashBoard"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintHorizontal_bias="0.38"
+                                            app:layout_constraintStart_toEndOf="@+id/dividerBarDashBoard"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <ImageView
+                                            android:id="@+id/imageViewTrashBarDashBoard"
+                                            android:layout_width="47dp"
+                                            android:layout_height="47dp"
+                                            android:background="#FF5722"
+                                            android:padding="2dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:srcCompat="@drawable/trash"/>
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                                <ImageView
+                                        android:id="@+id/imageView11BarDashBoard"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginTop="16dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextXPersonBarDashBoard"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView8BarDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/letra_x"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView8BarDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="20dp"
+                                        app:layout_constraintStart_toEndOf="@+id/editTextIdBarDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/taburete_de_bar"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView6BarDashBoard"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginTop="16dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextIdBarDashBoard"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView5BarDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/igual"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView5BarDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="16dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/bar"/>
+
+                                <EditText
+                                        android:id="@+id/editTextIdBarDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="3dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck"
+                                        android:layout_marginBottom="1dp"
+                                        app:layout_constraintBottom_toTopOf="@+id/switchUnionBarDashBoard"
+                                        app:layout_constraintEnd_toStartOf="@+id/imageView8BarDashBoard"
+                                />
+
+                                <EditText
+                                        android:id="@+id/editTextXPersonBarDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="64dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck"/>
+
+                                <Switch
+                                        android:id="@+id/switchBookingBarDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Reservas"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView5BarDashBoard"/>
+
+                                <Switch
+                                        android:id="@+id/switchLocationBarDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="28dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Interior"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/switchUnionBarDashBoard"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView8BarDashBoard"/>
+
+                                <Switch
+                                        android:id="@+id/switchUnionBarDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="28dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Union"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/switchBookingBarDashBoard"
+                                        app:layout_constraintTop_toBottomOf="@+id/editTextIdBarDashBoard"/>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewKitchenExpand"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:clickable="true"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.05"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                            android:id="@+id/cardViewKitchenExpand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:clickable="true"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="2dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.05"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imageView9Kitchen"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutKitchenExpand"
-                                app:layout_constraintStart_toStartOf="@+id/linearLayoutKitchenExpand"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutKitchenExpand"
-                                app:srcCompat="@drawable/oven" />
+                                    android:id="@+id/imageView9KitchenDashBoard"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutKitchenExpand"
+                                    app:layout_constraintStart_toStartOf="@+id/linearLayoutKitchenExpand"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutKitchenExpand"
+                                    app:srcCompat="@drawable/oven" />
 
                             <LinearLayout
-                                android:id="@+id/linearLayoutKitchenExpand"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:id="@+id/textView16Kitchen"
+                                    android:id="@+id/linearLayoutKitchenExpand"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:padding="15dp"
-                                    android:text="COCINAS"
-                                    android:textAlignment="center" />
+                                    android:orientation="horizontal"
+                                    android:padding="10dp">
+
+                                <TextView
+                                        android:id="@+id/textView16KitchenDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="15dp"
+                                        android:text="COCINAS"
+                                        android:textAlignment="center" />
 
                             </LinearLayout>
 
                             <ImageView
-                                android:id="@+id/imageView5KitchenExpand"
-                                android:layout_width="76dp"
-                                android:layout_height="51dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="8dp"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/linearLayoutKitchenExpand"
-                                app:layout_constraintEnd_toEndOf="@+id/linearLayoutKitchenExpand"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView9Kitchen"
-                                app:layout_constraintTop_toTopOf="@+id/linearLayoutKitchenExpand"
-                                app:srcCompat="@drawable/down_arrow" />
+                                    android:id="@+id/imageView5KitchenExpand"
+                                    android:layout_width="76dp"
+                                    android:layout_height="51dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/linearLayoutKitchenExpand"
+                                    app:layout_constraintEnd_toEndOf="@+id/linearLayoutKitchenExpand"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView9KitchenDashBoard"
+                                    app:layout_constraintTop_toTopOf="@+id/linearLayoutKitchenExpand"
+                                    app:srcCompat="@drawable/down_arrow" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/RVKitchen"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.87"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cardViewKitchenExpand">
+                            android:id="@+id/RVKitchen"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.87"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cardViewKitchenExpand">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayoutKitchen"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RVKitchen">
-
-                        <Button
-                            android:id="@+id/button2KitchenLoad"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/constraintLayoutKitchenDashBoard"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="88dp"
-                            android:text="Load"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editText11NKitchen"
-                            app:layout_constraintVertical_bias="0.0" />
-
-                        <Button
-                            android:id="@+id/button12KitchenCancel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="52dp"
-                            android:text="Cancela"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/button2KitchenLoad"
-                            app:layout_constraintTop_toBottomOf="@+id/switch11Kitchen"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                        <Switch
-                            android:id="@+id/switch11Kitchen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="48dp"
-                            android:minHeight="48dp"
-                            android:text="Sin Mesas"
+                            android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <EditText
-                            android:id="@+id/editText11NKitchen"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            app:layout_constraintStart_toEndOf="@+id/textView22Kitchen"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="SpeakableTextPresentCheck" />
-
-                        <TextView
-                            android:id="@+id/textView22Kitchen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="56dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Nº Mesas : "
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toBottomOf="@+id/RVKitchen">
+                        <androidx.cardview.widget.CardView
+                                android:id="@+id/cardViewKitchenDashBoard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:background="@color/teal_200"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        android:layout_marginBottom="11dp">
+
+                                    <View
+                                            android:id="@+id/dividerKitchenDashBoard"
+                                            android:layout_width="2dp"
+                                            android:layout_height="0dp"
+                                            android:background="?android:attr/listDivider"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toStartOf="@+id/imageViewTrashKitchenDashBoard"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <ImageView
+                                            android:id="@+id/imageView17AddKitchenDashBoard"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:background="@color/teal_200"
+                                            android:padding="2dp"
+                                            android:src="@drawable/add"
+                                            app:layout_constraintBottom_toTopOf="@+id/imageViewTrashKitchenDashBoard"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintHorizontal_bias="0.38"
+                                            app:layout_constraintStart_toEndOf="@+id/dividerKitchenDashBoard"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <ImageView
+                                            android:id="@+id/imageViewTrashKitchenDashBoard"
+                                            android:layout_width="47dp"
+                                            android:layout_height="47dp"
+                                            android:background="#FF5722"
+                                            android:padding="2dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:srcCompat="@drawable/trash"/>
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                                <ImageView
+                                        android:id="@+id/imageView15KitchenDashBoard"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginTop="12dp"
+                                        android:layout_marginEnd="8dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextXWorkersKitchenDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/letra_x"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView14KitchenDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginEnd="12dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/imageView15KitchenDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/cocinero"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView13KitchenDashBoard"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginTop="12dp"
+                                        app:layout_constraintEnd_toStartOf="@+id/editTextIdKitchenDashBoard"
+                                        app:layout_constraintHorizontal_bias="0.428"
+                                        app:layout_constraintStart_toEndOf="@+id/imageView12KitchenDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/igual"/>
+
+                                <ImageView
+                                        android:id="@+id/imageView12KitchenDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="16dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:srcCompat="@drawable/estufa"/>
+
+                                <EditText
+                                        android:id="@+id/editTextIdKitchenDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="40dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintEnd_toStartOf="@+id/imageView14KitchenDashBoard"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck"/>
+
+                                <EditText
+                                        android:id="@+id/editTextXWorkersKitchenDashBoard"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginEnd="60dp"
+                                        android:ems="10"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="SpeakableTextPresentCheck"/>
+
+                                <Switch
+                                        android:id="@+id/switchOpenKitchenDashBoard"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:checked="true"
+                                        android:minHeight="48dp"
+                                        android:text="Abierta"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView12KitchenDashBoard"/>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
