@@ -1,7 +1,9 @@
 package com.example.managmentrestarurantv2.view.fragments;
 
+
 import android.os.Bundle;
 
+import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,22 +14,17 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
+import com.example.res.R;
+import com.example.res.rest.business.model.*;
+import com.example.res.rest.view.adapters.Bar_Adapter;
+import com.example.res.rest.view.adapters.Kitchen_Adapter;
+import com.example.res.rest.view.adapters.Table_Adapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import com.example.managmentrestarurantv2.R;
-import com.example.managmentrestarurantv2.business.model.Bar;
-import com.example.managmentrestarurantv2.business.model.Booking;
-import com.example.managmentrestarurantv2.business.model.Count;
-import com.example.managmentrestarurantv2.business.model.Kitchen;
-import com.example.managmentrestarurantv2.business.model.Restaurant;
-import com.example.managmentrestarurantv2.business.model.Table;
-import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
-import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
-import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,6 +42,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     List<Kitchen> kitchenList = new ArrayList<>();
     List<Bar> barList = new ArrayList<>();
 
+    EditText editTextidResturante;
     EditText editTextIdTable;
     EditText editTextTableNPerson;
     EditText editTextIdBar;
@@ -71,6 +69,9 @@ public class FragmentRestaurantCRUD extends Fragment {
     RecyclerView recyclerViewTable;
     RecyclerView recyclerViewBar;
     RecyclerView recyclerViewKitchen;
+
+    Button buttoncreateRestaurant;
+    Button buttonCancel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -128,6 +129,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
         imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTableDashBoard);
 
+
         editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTableDashBoard);
         editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNpersonDashBoard);
 
@@ -137,35 +139,122 @@ public class FragmentRestaurantCRUD extends Fragment {
 
         recyclerViewTable = (RecyclerView) v.findViewById(R.id.RVTable);
 
-
         imageViewAddTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Map<String, Count> countList = new HashMap<>();
                 Map<String, Booking> bookinList = new HashMap<>();
-                
-                
-                if (noEmpty(editTextIdTable.getText().toString()) && checkNumber(editTextTableNPerson.getText().toString()){
-                
-                
+
+
+                if (noEmpty(editTextIdTable.getText().toString())
+                        && checkNumber(editTextTableNPerson.getText().toString())){
+                    Table table = new Table(
+                            editTextIdTable.getText().toString().trim()
+                            ,countList
+                            ,bookinList
+                            ,aSwitchTableUnion.isChecked()
+                            ,Integer.parseInt(editTextTableNPerson.getText().toString().trim())
+                            ,"null"
+                            ,aSwitchTableBooking.isChecked()
+                            ,aSwitchTableLocation.isChecked()
+                            ,"null"
+                    );
+                    recyclerViewTable.setVisibility(View.VISIBLE);
+                    addToTableList(table);
                 }
-                Table table = new Table(
-                        noEmpty(editTextIdTable.getText().toString())
-                        ,countList
-                        ,bookinList
-                        ,aSwitchTableUnion.isChecked()
-                        ,Integer.parseInt(editTextTableNPerson.getText().toString())
-                        ,"null"
-                        ,aSwitchTableBooking.isChecked()
-                        ,aSwitchTableLocation.isChecked()
-                        ,"null"
-                );
-                recyclerViewTable.setVisibility(View.VISIBLE);
-                addToTableList(table);
+            }
+
+        });
+        imageViewAddKitchen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (noEmpty(editTextIdKitchen.getText().toString()) && checkNumber(editTextNWorkers.getText().toString())){
+                    Kitchen kitchen = new Kitchen(
+                      editTextIdKitchen.getText().toString().trim()
+                      ,editTextIdKitchen.getText().toString().trim()
+                      ,editTextNWorkers.getText().toString()
+                      ,editTextNWorkers.getText().toString()
+                      ,aSwitchKitchenOpen.isChecked()
+                      ,"null"
+                      ,"null"
+                      ,"null"
+                    );
+                    recyclerViewKitchen.setVisibility(View.VISIBLE);
+                    addKitchenList(kitchen);
+                }
             }
         });
-        
+        imageViewAddBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (noEmpty(editTextIdBar.getText().toString()) && checkNumber(editTextNSeats.getText().toString())){
+                    Map<String, Count> countList = new HashMap<>();
+                    Map<String, Booking> bookinList = new HashMap<>();
+                    Map<String, Seat> seatList = new HashMap<>();
+
+                    Bar bar = new Bar(
+                            editTextIdBar.getText().toString().trim()
+                            ,countList
+                            ,bookinList
+                            ,aSwitchBarUnion.isChecked()
+                            ,Integer.parseInt(editTextNSeats.getText().toString().trim())
+                            ,seatList
+                            ,"Null"
+                            ,aSwitchBarBooking.isChecked()
+                            ,aSwitchBarLocation.isChecked()
+                            ,"null"
+                   );
+                    recyclerViewBar.setVisibility(View.VISIBLE);
+                    addBarList(bar);
+                }
+            }
+        });
+
+        buttoncreateRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (restaurant.getIdRestaurant() != null){
+                    updateRestaurant();
+                } else {
+                    newRestaurant();
+                }
+            }
+        });
         return v;
+    }
+
+    private void updateRestaurant() {
+    }
+
+    private void newRestaurant() {
+        final String  email = "johnDoe@gmail.com";
+        final String  telf = "999999999999";
+        final String cartaMenu= "Entrantes";
+        final String suplier = " Carnes garcia";
+        final String booking = String.valueOf(new Date().getTime());
+        final String product = "carne";
+        final String dni = "44881861Y";
+
+        Map <String, Table> listTables = tableList.stream()
+                .collect(Collectors.toMap(Table::getIdMesa, table -> table));
+        Map <String, Kitchen> listKitchen = kitchenList.stream()
+                .collect(Collectors.toMap(Kitchen::getIdKitchen, kitchen -> kitchen));
+        Map <String, Bar> lisBar = barList.stream()
+                .collect(Collectors.toMap(Bar::getIdBar,bar -> bar));
+
+        Map <String, Client> listClient = new HashMap<>();
+        Map <String, MenuRestaurant> listMenus = new HashMap<>();
+        Map <String, SupplierRestaurant> listSuppliers = new HashMap<>();
+        Map <String, Booking> listBookings = new HashMap<>();
+        Map <String, Product> listProducts = new HashMap<>();
+        Map <String, Worker> listWorkers = new HashMap<>();
+
+        listClient.put(email,new Client(email,email,telf));
+        listMenus.put(cartaMenu, new MenuRestaurant());
+        listSuppliers.put(suplier, new SupplierRestaurant());
+        listBookings.put(booking, new Booking());
+        listProducts.put(product, new Product());
+        listWorkers.put(dni, new Worker());
     }
 
     private void addToTableList(Table table) {
@@ -180,6 +269,33 @@ public class FragmentRestaurantCRUD extends Fragment {
         table_adapter = new Table_Adapter(tableList);
         recyclerViewTable.setAdapter(table_adapter);
     }
+
+    private void addKitchenList(Kitchen kitchen){
+        kitchenList.add(kitchen);
+        uploadAdapterKitchen(kitchenList);
+    }
+
+    private void uploadAdapterKitchen(List<Kitchen> kitchenList) {
+        recyclerViewKitchen.setLayoutManager(new LinearLayoutManager(getContext()
+                ,LinearLayoutManager.VERTICAL
+                ,false));
+        kitchen_adapter = new Kitchen_Adapter(kitchenList);
+        recyclerViewKitchen.setAdapter(kitchen_adapter);
+    }
+
+    private void addBarList(Bar bar){
+        barList.add(bar);
+        uploadAdapterBar(barList);
+    }
+
+    private void uploadAdapterBar(List<Bar> barList) {
+        recyclerViewBar.setLayoutManager(new LinearLayoutManager(getContext()
+                ,LinearLayoutManager.VERTICAL
+                ,false));
+        bar_adapter = new Bar_Adapter(barList);
+        recyclerViewBar.setAdapter(bar_adapter);
+    }
+
     private Boolean checkNumber(String number){
         Boolean valid;
         try {
@@ -190,9 +306,10 @@ public class FragmentRestaurantCRUD extends Fragment {
         }
         return  valid;
     }
+
     private Boolean noEmpty(String id){
         Boolean validId;
-       if (id != null && id.trim().length() > 0){
+        if (id != null && id.trim().length() > 0){
             validId = true;
         }else {
             validId = false;
