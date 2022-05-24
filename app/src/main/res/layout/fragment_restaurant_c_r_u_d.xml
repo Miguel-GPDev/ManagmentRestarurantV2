@@ -30,7 +30,7 @@
                         android:layout_height="wrap_content">
 
                     <EditText
-                            android:id="@+id/editTextTextPersonName"
+                            android:id="@+id/editTextIdRestaurantDashBoard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -125,7 +125,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toTopOf="@+id/constraintLayoutTable"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.87"
@@ -156,13 +156,13 @@
                             app:layout_constraintTop_toBottomOf="@+id/RVTable">
 
                         <androidx.cardview.widget.CardView
-                                android:id="@+id/cardViewTable"
+                                android:id="@+id/cardViewTableDashBoard"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
+                                app:layout_constraintTop_toTopOf="parent" android:visibility="gone">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="wrap_content"
@@ -187,7 +187,7 @@
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toStartOf="@+id/imageViewTrashTableDashBoard"
                                             app:layout_constraintStart_toStartOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent" />
+                                            app:layout_constraintTop_toTopOf="parent"/>
 
                                     <ImageView
                                             android:id="@+id/imageView17AddTable"
@@ -200,7 +200,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintHorizontal_bias="0.38"
                                             app:layout_constraintStart_toEndOf="@+id/divider"
-                                            app:layout_constraintTop_toTopOf="parent" />
+                                            app:layout_constraintTop_toTopOf="parent"/>
 
                                     <ImageView
                                             android:id="@+id/imageViewTrashTableDashBoard"
@@ -211,7 +211,7 @@
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
-                                            app:srcCompat="@drawable/trash" />
+                                            app:srcCompat="@drawable/trash"/>
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <ImageView
@@ -224,7 +224,7 @@
                                         app:layout_constraintEnd_toStartOf="@+id/editTextNpersonDashBoard"
                                         app:layout_constraintStart_toEndOf="@+id/imageView2"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:srcCompat="@drawable/letra_x" />
+                                        app:srcCompat="@drawable/letra_x"/>
 
                                 <ImageView
                                         android:id="@+id/imageView3"
@@ -235,7 +235,7 @@
                                         app:layout_constraintEnd_toStartOf="@+id/editTextIdTableDashBoard"
                                         app:layout_constraintStart_toEndOf="@+id/imageView"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:srcCompat="@drawable/igual" />
+                                        app:srcCompat="@drawable/igual"/>
 
                                 <ImageView
                                         android:id="@+id/imageView2"
@@ -244,7 +244,7 @@
                                         android:layout_marginStart="20dp"
                                         app:layout_constraintStart_toEndOf="@+id/editTextIdTableDashBoard"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:srcCompat="@drawable/personas" />
+                                        app:srcCompat="@drawable/personas"/>
 
                                 <ImageView
                                         android:id="@+id/imageView"
@@ -253,7 +253,7 @@
                                         android:layout_marginStart="16dp"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:srcCompat="@drawable/table_round" />
+                                        app:srcCompat="@drawable/table_round"/>
 
                                 <EditText
                                         android:id="@+id/editTextIdTableDashBoard"
@@ -267,7 +267,7 @@
                                         app:layout_constraintEnd_toStartOf="@+id/switchUnionTableDashBoard"
                                         app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        tools:ignore="SpeakableTextPresentCheck" />
+                                        tools:ignore="SpeakableTextPresentCheck"/>
 
                                 <EditText
                                         android:id="@+id/editTextNpersonDashBoard"
@@ -279,7 +279,7 @@
                                         android:inputType="textPersonName"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        tools:ignore="SpeakableTextPresentCheck" />
+                                        tools:ignore="SpeakableTextPresentCheck"/>
 
                                 <Switch
                                         android:id="@+id/switchBookingTableDashBoard"
@@ -291,7 +291,7 @@
                                         android:text="Reservas"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
                                 <Switch
                                         android:id="@+id/switchLocationTableDashBoard"
@@ -303,7 +303,7 @@
                                         android:text="Interior"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintStart_toEndOf="@+id/switchUnionTableDashBoard"
-                                        app:layout_constraintTop_toBottomOf="@+id/editTextNpersonDashBoard" />
+                                        app:layout_constraintTop_toBottomOf="@+id/editTextNpersonDashBoard"/>
 
                                 <Switch
                                         android:id="@+id/switchUnionTableDashBoard"
@@ -315,7 +315,7 @@
                                         android:text="Union"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintStart_toEndOf="@+id/switchBookingTableDashBoard"
-                                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                                        app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -415,13 +415,13 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/RVBar">
                         <androidx.cardview.widget.CardView
-                                android:id="@+id/cardViewBar"
+                                android:id="@+id/cardViewBarDashBoard"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
+                                app:layout_constraintTop_toTopOf="parent" android:visibility="gone">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="match_parent"
@@ -674,7 +674,7 @@
                                 android:layout_margin="5dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
+                                app:layout_constraintTop_toTopOf="parent" android:visibility="gone">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="match_parent"
@@ -687,7 +687,7 @@
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
                                         app:layout_constraintBottom_toBottomOf="parent"
-                                        android:layout_marginBottom="11dp">
+                                >
 
                                     <View
                                             android:id="@+id/dividerKitchenDashBoard"
