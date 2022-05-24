@@ -38,9 +38,16 @@ public class FragmentRestaurantCRUD extends Fragment {
     Bar_Adapter bar_adapter;
     Kitchen_Adapter kitchen_adapter;
 
+    List<Restaurant> restaurantList;
     List<Table> tableList = new ArrayList<>();
     List<Kitchen> kitchenList = new ArrayList<>();
     List<Bar> barList = new ArrayList<>();
+    List<Client> listClient = new ArrayList<>();
+    List<MenuRestaurant> listMenus = new ArrayList<>();
+    List<SupplierRestaurant> listSuppliers = new ArrayList<>();
+    List<Booking> listBookings = new ArrayList<>();
+    List<Product> listProducts = new ArrayList<>();
+    List<Worker> listWorkers = new ArrayList<>();
 
     EditText editTextidResturante;
     EditText editTextIdTable;
@@ -72,6 +79,13 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     Button buttoncreateRestaurant;
     Button buttonCancel;
+
+    CardView cardViewTableExpand;
+    CardView cardViewBarExpand;
+    CardView cardViewKitchenExpand;
+    CardView cardViewTableExpandDashBoard;
+    CardView cardViewBarExpandDashBoard;
+    CardView cardViewKitchenExpandDashBoard;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -129,7 +143,6 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
         imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTableDashBoard);
 
-
         editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTableDashBoard);
         editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNpersonDashBoard);
 
@@ -160,29 +173,10 @@ public class FragmentRestaurantCRUD extends Fragment {
                             ,"null"
                     );
                     recyclerViewTable.setVisibility(View.VISIBLE);
-                    addToTableList(table);
+                    addTableList(table);
                 }
             }
 
-        });
-        imageViewAddKitchen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (noEmpty(editTextIdKitchen.getText().toString()) && checkNumber(editTextNWorkers.getText().toString())){
-                    Kitchen kitchen = new Kitchen(
-                      editTextIdKitchen.getText().toString().trim()
-                      ,editTextIdKitchen.getText().toString().trim()
-                      ,editTextNWorkers.getText().toString()
-                      ,editTextNWorkers.getText().toString()
-                      ,aSwitchKitchenOpen.isChecked()
-                      ,"null"
-                      ,"null"
-                      ,"null"
-                    );
-                    recyclerViewKitchen.setVisibility(View.VISIBLE);
-                    addKitchenList(kitchen);
-                }
-            }
         });
         imageViewAddBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,9 +197,62 @@ public class FragmentRestaurantCRUD extends Fragment {
                             ,aSwitchBarBooking.isChecked()
                             ,aSwitchBarLocation.isChecked()
                             ,"null"
-                   );
+                    );
                     recyclerViewBar.setVisibility(View.VISIBLE);
                     addBarList(bar);
+                }
+            }
+        });
+        imageViewAddKitchen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (noEmpty(editTextIdKitchen.getText().toString()) && checkNumber(editTextNWorkers.getText().toString())){
+                    Kitchen kitchen = new Kitchen(
+                      editTextIdKitchen.getText().toString().trim()
+                      ,editTextIdKitchen.getText().toString().trim()
+                      ,editTextNWorkers.getText().toString()
+                      ,editTextNWorkers.getText().toString()
+                      ,aSwitchKitchenOpen.isChecked()
+                      ,"null"
+                      ,"null"
+                      ,"null"
+                    );
+                    recyclerViewKitchen.setVisibility(View.VISIBLE);
+                    addKitchenList(kitchen);
+                }
+            }
+        });
+
+        cardViewTableExpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cardViewTableExpandDashBoard.getVisibility() == View.VISIBLE){
+                    cardViewTableExpandDashBoard.setVisibility(View.GONE);
+                    recyclerViewTable.setVisibility(View.GONE);
+                }else {
+                    cardViewTableExpandDashBoard.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardViewBarExpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cardViewBarExpandDashBoard.getVisibility() == View.VISIBLE){
+                    cardViewBarExpandDashBoard.setVisibility(View.GONE);
+                    recyclerViewBar.setVisibility(View.GONE);
+                }else {
+                    cardViewBarExpandDashBoard.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cardViewKitchenExpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cardViewKitchenExpandDashBoard.getVisibility() == View.VISIBLE){
+                    cardViewKitchenExpandDashBoard.setVisibility(View.GONE);
+                    recyclerViewKitchen.setVisibility(View.GONE);
+                }else{
+                    cardViewKitchenExpandDashBoard.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -214,16 +261,31 @@ public class FragmentRestaurantCRUD extends Fragment {
             @Override
             public void onClick(View v) {
                 if (restaurant.getIdRestaurant() != null){
-                    updateRestaurant();
+                    fillRestaurant();
                 } else {
                     newRestaurant();
                 }
             }
         });
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        // Verifica si es un nuevo restaurante o estas actualizando uno.
+        if (restaurant.getIdRestaurant() != null){
+            fillRestaurant();
+        } 
         return v;
     }
 
-    private void updateRestaurant() {
+    private void fillRestaurant() {
+        uploadAdapterTable(tableList = new ArrayList<Table>(restaurant.getListTables().values()));
+        uploadAdapterBar(barList = new ArrayList<Bar>(restaurant.getLisBar().values()));
+        uploadAdapterKitchen(kitchenList = new ArrayList<Kitchen>(restaurant.getListKitchen().values()));
+
     }
 
     private void newRestaurant() {
@@ -235,12 +297,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         final String product = "carne";
         final String dni = "44881861Y";
 
-        Map <String, Table> listTables = tableList.stream()
-                .collect(Collectors.toMap(Table::getIdMesa, table -> table));
-        Map <String, Kitchen> listKitchen = kitchenList.stream()
-                .collect(Collectors.toMap(Kitchen::getIdKitchen, kitchen -> kitchen));
-        Map <String, Bar> lisBar = barList.stream()
-                .collect(Collectors.toMap(Bar::getIdBar,bar -> bar));
+
 
         Map <String, Client> listClient = new HashMap<>();
         Map <String, MenuRestaurant> listMenus = new HashMap<>();
@@ -255,9 +312,59 @@ public class FragmentRestaurantCRUD extends Fragment {
         listBookings.put(booking, new Booking());
         listProducts.put(product, new Product());
         listWorkers.put(dni, new Worker());
+
+        updateRestaurant(listClient, listMenus, listSuppliers, listBookings, listProducts, listWorkers);
+
     }
 
-    private void addToTableList(Table table) {
+    private void updateRestaurant(Map<String, Client> listClient, Map<String, MenuRestaurant> listMenus, Map<String, SupplierRestaurant> listSuppliers, Map<String, Booking> listBookings, Map<String, Product> listProducts, Map<String, Worker> listWorkers) {
+        Map <String, Table> listTables = tableList.stream()
+                .collect(Collectors.toMap(Table::getIdMesa, table -> table));
+        Map <String, Kitchen> listKitchen = kitchenList.stream()
+                .collect(Collectors.toMap(Kitchen::getIdKitchen, kitchen -> kitchen));
+        Map <String, Bar> listBar = barList.stream()
+                .collect(Collectors.toMap(Bar::getIdBar,bar -> bar));
+
+        if (isValidIdRestaurant(editTextIdTable.getText().toString())){
+            restaurant.setIdRestaurant(editTextidResturante.getText().toString());
+            restaurant.setEmail("null");
+            restaurant.setLisBar(listBar);
+            restaurant.setListTables(listTables);
+            restaurant.setListKitchen(listKitchen);
+            restaurant.setListClient(listClient);
+            restaurant.setListMenus(listMenus);
+            restaurant.setListSuppliers(listSuppliers);
+            restaurant.setListBookings(listBookings);
+            restaurant.setListProducts(listProducts);
+            restaurant.setListWorkers(listWorkers);
+
+            createRestaurant(restaurant);
+        }else {
+            // TODO MENSAJE CAMBIO DE NOMBRE DEL RESTAURANTE
+        }
+    }
+
+    private void listToMap (){
+
+    }
+
+    private void createRestaurant(Restaurant restaurant) {
+        RestaurantRepository restaurantRepository = new RestaurantRepositoryFirebaseImpl();
+        restaurantRepository.create(restaurant);
+    }
+
+    private Boolean isValidIdRestaurant(String toString) {
+        Boolean valid = true;
+
+        for (Restaurant lista : restaurantList){
+            if (lista.getIdRestaurant().toString().equals(editTextidResturante.getText().toString())){
+                valid = true;
+            }
+        }
+        return  valid;
+    }
+
+    private void addTableList(Table table) {
         tableList.add(table);
         uploadAdapterTable(tableList);
     }
@@ -315,5 +422,13 @@ public class FragmentRestaurantCRUD extends Fragment {
             validId = false;
         }
         return  validId;
+    }
+
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
+    public void setRestaurantList(List<Restaurant> restaurantList) {
+        this.restaurantList = restaurantList;
     }
 }
