@@ -1,12 +1,23 @@
-package com.example.res.rest.view.adapters;
+package com.example.managmentrestarurantv2.view.adapters;
 
+import android.annotation.SuppressLint;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Switch;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.res.R;
-import com.example.res.rest.business.model.Worker;
+
+import com.example.managmentrestarurantv2.R;
+import com.example.managmentrestarurantv2.business.model.Table;
+
 
 import java.util.List;
 
