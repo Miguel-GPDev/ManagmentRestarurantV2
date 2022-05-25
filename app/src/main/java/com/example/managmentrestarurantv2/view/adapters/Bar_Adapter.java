@@ -40,16 +40,16 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull barHolder holder, @SuppressLint("RecyclerView") int position) {
-        Bar bar = new Bar();
+        Bar bar = barList.get(position);
 
-        holder.editTextSize.setText(bar.getSize());
-        holder.editTextidBar.setText(bar.getIdBar());
+        holder.editTextNSeatsBar.setText(String.valueOf(bar.getSize()));
+        holder.editTextIdBar.setText(bar.getIdBar());
 
         holder.aSwitchBooking.setChecked(bar.getBooking());
         holder.aSwitchLocation.setChecked(bar.getLocation());
         holder.aSwitchUnion.setChecked(bar.getUnion());
 
-        holder.editTextidBar.addTextChangedListener(new TextWatcher() {
+        holder.editTextIdBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -63,14 +63,14 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    barList.get(position -1 ).setIdBar(holder.editTextidBar.getText().toString());
-                    barList.notifyAll();
-                }catch (Exception e){
+                    barList.get(position ).setIdBar(holder.editTextIdBar.getText().toString());
 
+                }catch (Exception e){
+                    //TODO
                 }
             }
         });
-        holder.editTextSize.addTextChangedListener(new TextWatcher() {
+        holder.editTextNSeatsBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -84,10 +84,10 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    barList.get(position - 1).setSize(Integer.valueOf(holder.editTextSize.getText().toString()));
-                    barList.notifyAll();
-                }catch (Exception e){
+                    barList.get(position).setSize(Integer.valueOf(holder.editTextNSeatsBar.getText().toString()));
 
+                }catch (Exception e){
+                    //TODO
                 }
             }
         });
@@ -95,22 +95,19 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         holder.aSwitchBooking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                barList.get(position -1 ).setBooking(holder.aSwitchBooking.isChecked());
-                barList.notifyAll();
+                barList.get(position).setBooking(holder.aSwitchBooking.isChecked());
             }
         });
         holder.aSwitchLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                barList.get(position -1).setLocation(holder.aSwitchLocation.isChecked());
-                barList.notifyAll();
+                barList.get(position ).setLocation(holder.aSwitchLocation.isChecked());
             }
         });
         holder.aSwitchUnion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                barList.get(position -1).setUnion(holder.aSwitchUnion.isChecked());
-                barList.notifyAll();
+                barList.get(position).setUnion(holder.aSwitchUnion.isChecked());
             }
         });
 
@@ -118,9 +115,9 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             @Override
             public void onClick(View v) {
                 try {
-                    barList.remove(position -1);
-                    notifyItemRemoved(position -1);
-                    notifyItemRangeChanged(position -1, getItemCount());
+                    barList.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, getItemCount());
                 }catch (Exception e){
                     //TODO
                 }
@@ -134,8 +131,8 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
     }
 
     public class barHolder extends RecyclerView.ViewHolder {
-        EditText editTextidBar;
-        EditText editTextSize;
+        EditText editTextIdBar;
+        EditText editTextNSeatsBar;
 
         Switch aSwitchBooking;
         Switch aSwitchUnion;
@@ -143,10 +140,18 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
 
         ImageView imageViewDelete;
 
-        CardView cardViewTable;
+        CardView cardViewBar;
         public barHolder(@NonNull View itemView) {
             super(itemView);
-            //TODO ENLAZAR CONTROLES
+            editTextIdBar = (EditText) itemView.findViewById(R.id.editTextIdBar);
+            editTextNSeatsBar = (EditText) itemView.findViewById(R.id.editTextXPersonBar);
+
+            aSwitchBooking =(Switch) itemView.findViewById(R.id.switchBookingBar);
+            aSwitchLocation = (Switch) itemView.findViewById(R.id.switchLocationBar);
+            aSwitchUnion = (Switch) itemView.findViewById(R.id.switchUnionBar);
+
+            imageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewTrashBar);
+
         }
     }
 }

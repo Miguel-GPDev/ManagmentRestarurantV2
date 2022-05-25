@@ -2,6 +2,8 @@ package com.example.managmentrestarurantv2.view.adapters;
 
 
 import android.annotation.SuppressLint;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,7 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
     @Override
     public void onBindViewHolder(@NonNull Kitchen_Adapter.kitchenHolder holder, @SuppressLint("RecyclerView") int position) {
-        Kitchen kitchen = new Kitchen();
+        Kitchen kitchen = kitchenList.get(position);
 
         holder.editTextIdKitchen.setText(kitchen.getIdKitchen().toString());
         holder.editTextNworkers.setText(kitchen.getnWorkers().toString());
@@ -47,11 +49,48 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
         holder.imageViewTrashKitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchenList.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, getItemCount());
+                try {
+                    kitchenList.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, getItemCount());
+                }catch (Exception e){
+                    //TODO
+                }
             }
         });
+         holder.editTextIdKitchen.addTextChangedListener(new TextWatcher() {
+             @Override
+             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+             }
+
+             @Override
+             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+             }
+
+             @Override
+             public void afterTextChanged(Editable s) {
+                kitchenList.get(position).setIdKitchen(holder.editTextIdKitchen.getText().toString());
+
+             }
+         });
+         holder.editTextNworkers.addTextChangedListener(new TextWatcher() {
+             @Override
+             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+             }
+
+             @Override
+             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+             }
+
+             @Override
+             public void afterTextChanged(Editable s) {
+                kitchenList.get(position).setnWorkers(holder.editTextNworkers.getText().toString());
+             }
+         });
     }
 
     @Override
@@ -72,7 +111,7 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
             editTextNworkers = (EditText) itemView
                     .findViewById(R.id.editTextXWorkers);
             editTextIdKitchen = (EditText) itemView
-                    .findViewById(R.id.editTextIdCocina);
+                    .findViewById(R.id.editTextIdKitchen);
 
             aSwitchOpenKitchen =(Switch) itemView
                     .findViewById(R.id.switchOpenKitchen);

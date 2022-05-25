@@ -85,7 +85,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             public void afterTextChanged(Editable s) {
                 try {
                     tableList.get(position).setSize(Integer.valueOf(holder.editTextSize.getText().toString()));
-                    tableList.notifyAll();
+
                 }catch (Exception e){
 
                 }

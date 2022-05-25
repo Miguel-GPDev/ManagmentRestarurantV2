@@ -1,9 +1,13 @@
 package com.example.managmentrestarurantv2.view.fragments;
 
 
+import android.os.Build;
 import android.os.Bundle;
 
 import android.widget.Button;
+
+import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,14 +18,25 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
-import com.example.res.R;
-import com.example.res.rest.business.model.*;
-import com.example.res.rest.view.adapters.Bar_Adapter;
-import com.example.res.rest.view.adapters.Kitchen_Adapter;
-import com.example.res.rest.view.adapters.Table_Adapter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
+import com.example.managmentrestarurantv2.R;
+import com.example.managmentrestarurantv2.business.model.Bar;
+import com.example.managmentrestarurantv2.business.model.Booking;
+import com.example.managmentrestarurantv2.business.model.Client;
+import com.example.managmentrestarurantv2.business.model.Count;
+import com.example.managmentrestarurantv2.business.model.Kitchen;
+import com.example.managmentrestarurantv2.business.model.MenuRestaurant;
+import com.example.managmentrestarurantv2.business.model.Product;
+import com.example.managmentrestarurantv2.business.model.Restaurant;
+import com.example.managmentrestarurantv2.business.model.Seat;
+import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
+import com.example.managmentrestarurantv2.business.model.Table;
+import com.example.managmentrestarurantv2.business.model.Worker;
+import com.example.managmentrestarurantv2.integration.RestaurantRepository;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
+import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
+import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
+import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -142,15 +157,41 @@ public class FragmentRestaurantCRUD extends Fragment {
 
         imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
         imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTableDashBoard);
+        imageViewAddBar = (ImageView) v.findViewById(R.id.imageView17AddBarDashBoard);
+        imageViewDeleteBar = (ImageView) v.findViewById(R.id.imageViewTrashBarDashBoard);
+        imageViewAddKitchen = (ImageView) v.findViewById(R.id.imageView17AddKitchenDashBoard);
+        imageViewDeleteKitchen = (ImageView) v.findViewById(R.id.imageViewTrashKitchenDashBoard);
 
         editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTableDashBoard);
         editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNpersonDashBoard);
+        editTextIdBar = (EditText) v.findViewById(R.id.editTextIdBarDashBoard);
+        editTextNSeats = (EditText) v.findViewById(R.id.editTextXPersonBarDashBoard);
+        editTextIdKitchen = (EditText) v.findViewById(R.id.editTextIdKitchenDashBoard);
+        editTextNWorkers = (EditText) v.findViewById(R.id.editTextXWorkersKitchenDashBoard);
+
 
         aSwitchTableBooking = (Switch) v.findViewById(R.id.switchBookingTableDashBoard);
         aSwitchTableLocation = (Switch) v.findViewById(R.id.switchLocationTableDashBoard);
         aSwitchTableUnion = (Switch) v.findViewById(R.id.switchUnionTableDashBoard);
+        aSwitchBarBooking = (Switch)v.findViewById(R.id.switchBookingBarDashBoard);
+        aSwitchBarLocation = (Switch) v.findViewById(R.id.switchLocationBarDashBoard);
+        aSwitchBarUnion = (Switch) v.findViewById(R.id.switchUnionBarDashBoard);
+        aSwitchKitchenOpen = (Switch) v.findViewById(R.id.switchOpenKitchenDashBoard);
+
+        cardViewTableExpand = (CardView) v.findViewById(R.id.cardViewTableExpand);
+        cardViewBarExpand = (CardView) v.findViewById(R.id.cardViewBarExpand);
+        cardViewKitchenExpand = (CardView) v.findViewById(R.id.cardViewKitchenExpand);
+        cardViewTableExpandDashBoard = (CardView) v.findViewById(R.id.cardViewTableDashBoard);
+        cardViewBarExpandDashBoard = (CardView) v.findViewById(R.id.cardViewBarDashBoard);
+        cardViewKitchenExpandDashBoard = (CardView) v.findViewById(R.id.cardViewKitchenDashBoard);
+
+        buttoncreateRestaurant = (Button) v.findViewById(R.id.buttonCreatRestaurantDashBoard);
+        buttonCancel = (Button) v.findViewById(R.id.button2CancelCreateRestaurantDashBoard);
 
         recyclerViewTable = (RecyclerView) v.findViewById(R.id.RVTable);
+        recyclerViewBar = (RecyclerView) v.findViewById(R.id.RVBar);
+        recyclerViewKitchen = (RecyclerView) v.findViewById(R.id.RVKitchen);
+
 
         imageViewAddTable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,7 +222,9 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (noEmpty(editTextIdBar.getText().toString()) && checkNumber(editTextNSeats.getText().toString())){
+                String x = editTextIdBar.getText().toString();
+                if (noEmpty(editTextIdBar.getText().toString())
+                        && checkNumber(editTextNSeats.getText().toString())){
                     Map<String, Count> countList = new HashMap<>();
                     Map<String, Booking> bookinList = new HashMap<>();
                     Map<String, Seat> seatList = new HashMap<>();
@@ -258,6 +301,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         });
 
         buttoncreateRestaurant.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 if (restaurant.getIdRestaurant() != null){
@@ -288,6 +332,7 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void newRestaurant() {
         final String  email = "johnDoe@gmail.com";
         final String  telf = "999999999999";
@@ -306,7 +351,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         Map <String, Product> listProducts = new HashMap<>();
         Map <String, Worker> listWorkers = new HashMap<>();
 
-        listClient.put(email,new Client(email,email,telf));
+        listClient.put(email,new Client());
         listMenus.put(cartaMenu, new MenuRestaurant());
         listSuppliers.put(suplier, new SupplierRestaurant());
         listBookings.put(booking, new Booking());
@@ -317,6 +362,7 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void updateRestaurant(Map<String, Client> listClient, Map<String, MenuRestaurant> listMenus, Map<String, SupplierRestaurant> listSuppliers, Map<String, Booking> listBookings, Map<String, Product> listProducts, Map<String, Worker> listWorkers) {
         Map <String, Table> listTables = tableList.stream()
                 .collect(Collectors.toMap(Table::getIdMesa, table -> table));

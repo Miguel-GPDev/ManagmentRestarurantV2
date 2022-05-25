@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewBarExpand"
@@ -62,10 +62,10 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="3dp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
+                app:layout_constraintStart_toEndOf="@+id/switchBookingBar"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpeakableTextPresentCheck"
-                tools:layout_editor_absoluteX="121dp" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
                 android:id="@+id/editTextXPersonBar"
@@ -74,7 +74,7 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="64dp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
