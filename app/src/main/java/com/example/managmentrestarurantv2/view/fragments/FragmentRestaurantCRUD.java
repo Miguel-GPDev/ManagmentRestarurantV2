@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -321,7 +324,8 @@ public class FragmentRestaurantCRUD extends Fragment {
         // Verifica si es un nuevo restaurante o estas actualizando uno.
         if (restaurant.getIdRestaurant() != null){
             fillRestaurant();
-        } 
+        }
+        fragmentworker();
         return v;
     }
 
@@ -363,7 +367,11 @@ public class FragmentRestaurantCRUD extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void updateRestaurant(Map<String, Client> listClient, Map<String, MenuRestaurant> listMenus, Map<String, SupplierRestaurant> listSuppliers, Map<String, Booking> listBookings, Map<String, Product> listProducts, Map<String, Worker> listWorkers) {
+    private void updateRestaurant(Map<String, Client> listClient, Map<String
+            , MenuRestaurant> listMenus, Map<String, SupplierRestaurant> listSuppliers
+            , Map<String, Booking> listBookings, Map<String, Product> listProducts
+            , Map<String, Worker> listWorkers) {
+
         Map <String, Table> listTables = tableList.stream()
                 .collect(Collectors.toMap(Table::getIdMesa, table -> table));
         Map <String, Kitchen> listKitchen = kitchenList.stream()
@@ -476,5 +484,14 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     public void setRestaurantList(List<Restaurant> restaurantList) {
         this.restaurantList = restaurantList;
+    }
+
+    private void fragmentworker(){
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        BlankFragment blankFragment = new BlankFragment();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayoutWorker,blankFragment);
+        fragmentTransaction.commit();
     }
 }

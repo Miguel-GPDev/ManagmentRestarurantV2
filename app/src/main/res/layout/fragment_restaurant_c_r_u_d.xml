@@ -845,7 +845,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:padding="15dp"
-                                    android:text="COCINAS"
+                                    android:text="TRABAJADORES"
                                     android:textAlignment="center" />
 
                             </LinearLayout>
@@ -891,11 +891,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/RVWorker">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cardViewWorkerDashBoard"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -918,7 +916,7 @@
                                         android:layout_height="0dp"
                                         android:background="?android:attr/listDivider"
                                         app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toStartOf="@+id/imageViewTrashKitchenDashBoard"
+                                        app:layout_constraintEnd_toStartOf="@+id/imageViewTrashWorkerDashBoard"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -947,85 +945,364 @@
                                         app:srcCompat="@drawable/trash" />
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                                <ImageView
-                                    android:id="@+id/imageView15WorkerDashBoard"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_marginTop="12dp"
-                                    android:layout_marginEnd="8dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextXWorkersWorkerDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/letra_x" />
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="8dp"
+                                    android:layout_marginTop="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView21TelephoneWorkerDashBoard">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/ConstraintLayoutInfoWorkerDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="400dp"
+                                        android:visibility="gone">
+
+                                        <Spinner
+                                            android:id="@+id/spinner4ChargeWorkerDashBoard"
+                                            android:layout_width="250dp"
+                                            android:layout_height="53dp"
+                                            android:layout_marginStart="42dp"
+                                            android:layout_marginTop="12dp"
+                                            app:layout_constraintStart_toEndOf="@+id/textView9WorkerDashBoard"
+                                            app:layout_constraintTop_toBottomOf="@+id/textView8BossWorkerDashBoard"
+                                            tools:ignore="SpeakableTextPresentCheck" />
+
+                                        <Spinner
+                                            android:id="@+id/spinner5workPlaceWorkerDashBoard"
+                                            android:layout_width="250dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintStart_toEndOf="@+id/textView10WorkerDashBoard"
+                                            app:layout_constraintTop_toBottomOf="@+id/spinner4ChargeWorkerDashBoard"
+                                            tools:ignore="SpeakableTextPresentCheck" />
+
+                                        <TextView
+                                            android:id="@+id/textView7WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="20dp"
+                                            android:text="Resposable :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/spinner2RestaurantWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView10WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="24dp"
+                                            android:text="Puesto en :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/spinner4ChargeWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView9WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="28dp"
+                                            android:text="Cargo :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/textView8BossWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView8BossWorkerDashBoard"
+                                            android:layout_width="0dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="TextView"
+                                            android:textAlignment="gravity"
+                                            app:layout_constraintStart_toEndOf="@+id/textView7WorkerDashBoard"
+                                            app:layout_constraintTop_toBottomOf="@+id/spinner2RestaurantWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView6WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="16dp"
+                                            android:text="Restaurante :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <Spinner
+                                            android:id="@+id/spinner2RestaurantWorkerDashBoard"
+                                            android:layout_width="250dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintStart_toEndOf="@+id/textView6WorkerDashBoard"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="SpeakableTextPresentCheck" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/ConstraintLayoutCalendarWorkerDashBoard"
+                                        android:layout_width="393dp"
+                                        android:layout_height="wrap_content"
+                                        android:visibility="gone">
+
+                                        <Spinner
+                                            android:id="@+id/spinnerStatusWorkerDashBoard"
+                                            android:layout_width="178dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="48dp"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintStart_toEndOf="@+id/textView5WorkerDashBoard"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextDateWorkerDashBoard"
+                                            tools:ignore="SpeakableTextPresentCheck" />
+
+                                        <EditText
+                                            android:id="@+id/editTextDateWorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:ems="10"
+                                            android:hint="01/01/2021"
+                                            android:inputType="date"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toEndOf="@+id/textView4WorkerDashBoard"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextContracWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView4WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="28dp"
+                                            android:text="Fecha de Alta :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextContracWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView5WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="20dp"
+                                            android:text="Estado :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextDateWorkerDashBoard" />
+
+                                        <TextView
+                                            android:id="@+id/textView3WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="24dp"
+                                            android:text="JORNADA :"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <EditText
+                                            android:id="@+id/editTextContracWorkerDashBoard"
+                                            android:layout_width="63dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginTop="8dp"
+                                            android:ems="10"
+                                            android:hint="Horas"
+                                            android:inputType="textPersonName"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintHorizontal_bias="0.119"
+                                            app:layout_constraintStart_toEndOf="@+id/textView3WorkerDashBoard"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/ConstraintLayoutTelephoneWorkerDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:visibility="gone">
+
+                                        <EditText
+                                            android:id="@+id/editTextPhoneWorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:drawableLeft="@android:drawable/ic_menu_call"
+                                            android:ems="10"
+                                            android:inputType="phone"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="SpeakableTextPresentCheck" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/ConstraintLayoutEmailWorkerDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:visibility="gone">
+
+                                        <EditText
+                                            android:id="@+id/editTextEmailWorkerDashBoard"
+                                            android:layout_width="225dp"
+                                            android:layout_height="49dp"
+                                            android:layout_marginStart="8dp"
+                                            android:drawableLeft="@android:drawable/ic_dialog_email"
+                                            android:ems="10"
+                                            android:hint="XXXXXXX@gmail.com"
+                                            android:inputType="textPersonName"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TouchTargetSizeCheck" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/ConstraintLayoutDatesWorkerDashBoard"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:visibility="gone">
+
+                                        <EditText
+                                            android:id="@+id/editTextNameWorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:drawableLeft="@android:drawable/ic_menu_edit"
+                                            android:ems="10"
+                                            android:hint="Nombre"
+                                            android:inputType="textPersonName"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TouchTargetSizeCheck" />
+
+                                        <EditText
+                                            android:id="@+id/editTextSurnameWorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:drawableLeft="@android:drawable/ic_menu_edit"
+                                            android:ems="10"
+                                            android:hint="Apellido 1"
+                                            android:inputType="textPersonName"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextNameWorkerDashBoard"
+                                            tools:ignore="TouchTargetSizeCheck" />
+
+                                        <EditText
+                                            android:id="@+id/editTextSurname2WorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:drawableLeft="@android:drawable/ic_input_add"
+                                            android:ems="10"
+                                            android:hint="Apellido 2"
+                                            android:inputType="textPersonName"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextSurnameWorkerDashBoard" />
+
+                                        <EditText
+                                            android:id="@+id/editTextNifWorkerDashBoard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="8dp"
+                                            android:layout_marginTop="8dp"
+                                            android:drawableLeft="@android:drawable/ic_input_add"
+                                            android:ems="10"
+                                            android:hint="NIF"
+                                            android:inputType="textPersonName"
+                                            android:minHeight="48dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/editTextSurname2WorkerDashBoard" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </androidx.cardview.widget.CardView>
 
                                 <ImageView
-                                    android:id="@+id/imageView14WorkerDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginEnd="12dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/imageView15WorkerDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/cocinero" />
+                                    android:id="@+id/imageView22CalendarWorkerDashBoard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView21TelephoneWorkerDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:srcCompat="@drawable/calendario" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13WorkerDashBoard"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_marginTop="12dp"
-                                    app:layout_constraintEnd_toStartOf="@+id/editTextIdWorkerDashBoard"
-                                    app:layout_constraintHorizontal_bias="0.428"
-                                    app:layout_constraintStart_toEndOf="@+id/imageView12WorkerDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/igual" />
-
-                                <ImageView
-                                    android:id="@+id/imageView12WorkerDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
+                                    android:id="@+id/imageView21TelephoneWorkerDashBoard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
                                     android:layout_marginStart="16dp"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView19DatesWorkerDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:srcCompat="@drawable/llamada_telefonica" />
+
+                                <ImageView
+                                    android:id="@+id/imageView23InfoWorkerDashBoard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView22CalendarWorkerDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:srcCompat="@drawable/camarero" />
+
+                                <ImageView
+                                    android:id="@+id/imageView19DatesWorkerDashBoard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="16dp"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView18EmailWorkerDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:srcCompat="@drawable/nif" />
+
+                                <ImageView
+                                    android:id="@+id/imageView18EmailWorkerDashBoard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:srcCompat="@drawable/email" />
+
+                                <ImageView
+                                    android:id="@+id/imageView17PhotoWorkerDashBoard"
+                                    android:layout_width="97dp"
+                                    android:layout_height="91dp"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/estufa" />
+                                    app:srcCompat="@drawable/photo_camera" />
 
-                                <EditText
-                                    android:id="@+id/editTextIdWorkerDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginEnd="40dp"
-                                    android:ems="10"
-                                    android:inputType="number"
-                                    app:layout_constraintEnd_toStartOf="@+id/imageView14WorkerDashBoard"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="SpeakableTextPresentCheck" />
-
-                                <EditText
-                                    android:id="@+id/editTextXWorkersWorkerDashBoard"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginEnd="60dp"
-                                    android:ems="10"
-                                    android:inputType="number"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="SpeakableTextPresentCheck" />
-
-                                <Switch
-                                    android:id="@+id/switchOpenWorkerDashBoard"
+                                <TextView
+                                    android:id="@+id/textView2NameCompletWorkerDashBoard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="16dp"
-                                    android:checked="true"
-                                    android:minHeight="48dp"
-                                    android:text="Abierta"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageView12WorkerDashBoard" />
+                                    android:layout_marginTop="16dp"
+                                    android:text="TextView"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.068"
+                                    app:layout_constraintStart_toEndOf="@+id/imageView17PhotoWorkerDashBoard"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frameLayoutWorker"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </FrameLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Table;
+import com.example.managmentrestarurantv2.business.model.Worker;
 
 
 import java.util.List;
