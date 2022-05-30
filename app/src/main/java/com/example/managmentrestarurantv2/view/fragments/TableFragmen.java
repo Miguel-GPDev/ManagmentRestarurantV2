@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.res.rest.business.model.Table;
+import com.example.managmentrestarurantv2.business.model.Table;
 
 /**
  * A simple {@link Fragment} subclass.
