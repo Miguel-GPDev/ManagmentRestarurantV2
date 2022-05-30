@@ -105,7 +105,7 @@ public class TableFragmen extends Fragment {
         editTextTableNPerson.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                table.setSize(Integer.valueOf(editTextTableNPerson.getText().toString()));
+                
             }
 
             @Override
@@ -115,7 +115,7 @@ public class TableFragmen extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                table.setSize(Integer.valueOf(editTextTableNPerson.getText().toString()));
             }
         });
 
