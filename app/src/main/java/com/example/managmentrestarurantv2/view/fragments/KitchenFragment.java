@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.res.R;
-import com.example.res.rest.business.model.Kitchen;
+import com.example.managmentrestarurantv2.business.model.Kitchen;
 
 /**
  * A simple {@link Fragment} subclass.
