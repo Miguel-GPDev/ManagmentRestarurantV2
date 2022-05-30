@@ -1,4 +1,4 @@
-package com.example.res;
+package com.example.managmentrestarurantv2.view.fragments;
 
 import android.os.Bundle;
 import android.text.Editable;
