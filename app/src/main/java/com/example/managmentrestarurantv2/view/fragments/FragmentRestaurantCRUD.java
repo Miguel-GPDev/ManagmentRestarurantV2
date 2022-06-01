@@ -52,6 +52,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     Table_Adapter table_adapter;
     Bar_Adapter bar_adapter;
     Kitchen_Adapter kitchen_adapter;
+    Worker_Adapter worker_adapter;
 
     List<Restaurant> restaurantList;
     List<Table> tableList = new ArrayList<>();
@@ -62,7 +63,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     List<SupplierRestaurant> listSuppliers = new ArrayList<>();
     List<Booking> listBookings = new ArrayList<>();
     List<Product> listProducts = new ArrayList<>();
-    List<Worker> listWorkers = new ArrayList<>();
+    List<Worker> workerList = new ArrayList<>();
 
 
     ImageView imageViewAddTable;
@@ -71,6 +72,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     ImageView imageViewDeleteKitchen;
     ImageView imageViewAddBar;
     ImageView imageViewDeleteBar;
+    ImageView imageViewAddWorker;
 
     RecyclerView recyclerViewTable;
     RecyclerView recyclerViewBar;
@@ -96,10 +98,13 @@ public class FragmentRestaurantCRUD extends Fragment {
     TableFragmen tableFragmen;
     BarFragment barFragment;
     WorkerFragment workerFragment;
+    KitchenFragment kitchenFragment;
 
     Map<String, Count> countList = new HashMap<>();
     Map<String, Booking> bookinList = new HashMap<>();
     Map<String,Seat > seatList = new HashMap<>();
+
+    FirebaseAuth mAuth;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -153,6 +158,8 @@ public class FragmentRestaurantCRUD extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_restaurant_c_r_u_d, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
 
         editTextIdRestaurante = (EditText) v.findViewById(R.id.editTextIdRestaurantDashBoard);
 
@@ -250,10 +257,60 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddKitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Kitchen kitchen = kitchenFragment.getKitchen();
 
+                if (editTextIdRestaurante.getText().toString() != null){
+                    kitchen.setIdRestaurant(
+                            editTextIdRestaurante.getText().toString()
+                    );
+                }else{
+                    //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
+                }
+
+                if (kitchen_adapter.getKitchenList() == null){
+                    addKitchenList(kitchen);
+                    recyclerViewKitchen.setVisibility(View.VISIBLE);
+                }else {
+                    for (Kitchen kitchen1 : kitchen_adapter.getKitchenList()){
+                        if (kitchen1.getIdKitchen().equals(kitchen.getIdKitchen())){
+                            //TODO Mensaje de Id repetido
+                        }else{
+                            addKitchenList(kitchen);
+                            recyclerViewKitchen.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
             }
         });
+        imageViewAddWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Worker worker = workerFragment.getWorker();
+                worker.setIdBoss(mAuth.getUid());
 
+                if (editTextIdRestaurante.getText().toString() != null){
+                    worker.setIdRestaurant(
+                            editTextIdRestaurante.getText().toString()
+                    );
+                }else{
+                    //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
+                }
+
+                if (worker_adapter.getWorkerList() == null){
+                    addWorkerList(worker);
+                    recyclerViewKitchen.setVisibility(View.VISIBLE);
+                }else {
+                    for (Worker worker1 : worker_adapter.getWorkerList()){
+                        if (worker1.getNif().equals(worker.getNif())){
+                            //TODO Mensaje de Id repetido
+                        }else{
+                            addWorkerList(worker);
+                            recyclerViewWorker.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+            }
+        });
         cardViewTableExpand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -314,6 +371,19 @@ public class FragmentRestaurantCRUD extends Fragment {
         });
 
         return v;
+    }
+
+    private void addWorkerList(Worker worker) {
+        workerList.add(worker);
+        uploadAdapterWorker(workerList);
+    }
+
+    private void uploadAdapterWorker(List<Worker> workerList) {
+        recyclerViewWorker.setLayoutManager(new LinearLayoutManager(getContext()
+                ,LinearLayoutManager.VERTICAL
+                ,false));
+        worker_adapter = new Worker_Adapter(workerList);
+        recyclerViewWorker.setAdapter(worker_adapter);
     }
 
     private void addTableList(Table table) {
@@ -409,6 +479,14 @@ public class FragmentRestaurantCRUD extends Fragment {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayoutBar,barFragment);
+        fragmentTransaction.commit();
+    }
+    private void kitchenFragment (){
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        kitchenFragment = new KitchenFragment();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayoutKitchen,kitchenFragment);
         fragmentTransaction.commit();
     }
 }
