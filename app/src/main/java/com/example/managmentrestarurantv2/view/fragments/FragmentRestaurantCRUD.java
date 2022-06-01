@@ -94,6 +94,13 @@ public class FragmentRestaurantCRUD extends Fragment {
     EditText editTextIdRestaurante;
 
     TableFragmen tableFragmen;
+    BarFragment barFragment;
+    WorkerFragment workerFragment;
+
+    Map<String, Count> countList = new HashMap<>();
+    Map<String, Booking> bookinList = new HashMap<>();
+    Map<String,Seat > seatList = new HashMap<>();
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -181,8 +188,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, Count> countList = new HashMap<>();
-                Map<String, Booking> bookinList = new HashMap<>();
+
 
                 Table table = tableFragmen.getTable();
 
@@ -193,15 +199,52 @@ public class FragmentRestaurantCRUD extends Fragment {
                 }
                 table.setListBooking(bookinList);
                 table.setListCount(countList);
-                addTableList(table);
-                recyclerViewTable.setVisibility(View.VISIBLE);
+
+                if (table_adapter.getTableList() == null){
+                    addTableList(table);
+                    recyclerViewTable.setVisibility(View.VISIBLE);
+                }else {
+                    for (Table table1 : table_adapter.getTableList()){
+                        if (table1.getIdMesa().equals(table.getIdMesa())){
+                            //TODO Mensaje de Id repetido
+                        }else{
+                            addTableList(table);
+                            recyclerViewTable.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
             }
         });
 
         imageViewAddBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bar bar = barFragment.getBar();
 
+                if (editTextIdRestaurante.getText().toString() != null){
+                    bar.setIdRestaurant(
+                            editTextIdRestaurante.getText().toString()
+                    );
+                }else{
+                    //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
+                }
+                bar.setListBooking(bookinList);
+                bar.setListCount(countList);
+                bar.setSeatList(seatList);
+
+                if (bar_adapter.getBarList() == null){
+                    addBarList(bar);
+                    recyclerViewBar.setVisibility(View.VISIBLE);
+                }else {
+                    for (Bar bar1 : bar_adapter.getBarList()){
+                        if (bar1.getIdBar().equals(bar1.getIdBar())){
+                            //TODO Mensaje de Id repetido
+                        }else{
+                            addBarList(bar);
+                            recyclerViewBar.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
             }
         });
         imageViewAddKitchen.setOnClickListener(new View.OnClickListener() {
@@ -269,7 +312,6 @@ public class FragmentRestaurantCRUD extends Fragment {
 
             }
         });
-
 
         return v;
     }
@@ -359,5 +401,14 @@ public class FragmentRestaurantCRUD extends Fragment {
         fragmentTransaction.replace(R.id.frameLayoutTable,tableFragmen);
         fragmentTransaction.commit();
 
+    }
+
+    private void barFragment (){
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        barFragment = new BarFragment();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayoutBar,barFragment);
+        fragmentTransaction.commit();
     }
 }
