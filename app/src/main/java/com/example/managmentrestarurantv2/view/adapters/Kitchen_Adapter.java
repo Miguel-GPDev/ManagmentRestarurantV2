@@ -46,51 +46,52 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
         holder.aSwitchOpenKitchen.setChecked(kitchen.getOpen());
 
+        colorCardview(holder, kitchen);
+
         holder.imageViewTrashKitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    kitchenList.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemRangeChanged(position, getItemCount());
-                }catch (Exception e){
-                    //TODO
-                }
+                kitchenList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, getItemCount());
             }
         });
-         holder.editTextIdKitchen.addTextChangedListener(new TextWatcher() {
-             @Override
-             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-             }
+        holder.editTextNworkers.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-             @Override
-             public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
-             }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-             @Override
-             public void afterTextChanged(Editable s) {
-                kitchenList.get(position).setIdKitchen(holder.editTextIdKitchen.getText().toString());
+            }
 
-             }
-         });
-         holder.editTextNworkers.addTextChangedListener(new TextWatcher() {
-             @Override
-             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-             }
-
-             @Override
-             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-             }
-
-             @Override
-             public void afterTextChanged(Editable s) {
+            @Override
+            public void afterTextChanged(Editable s) {
                 kitchenList.get(position).setnWorkers(holder.editTextNworkers.getText().toString());
-             }
-         });
+                colorCardview(holder, kitchen);
+            }
+        });
+
+        holder.editTextIdKitchen.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                kitchenList.get(position).setIdKitchen(holder.editTextIdKitchen.getText().toString());
+                colorCardview(holder, kitchen);
+            }
+        });
     }
 
     @Override
@@ -106,6 +107,8 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
         ImageView imageViewTrashKitchen;
 
+        CardView cardViewKitchen;
+
         public kitchenHolder(@NonNull View itemView) {
             super(itemView);
             editTextNworkers = (EditText) itemView
@@ -118,7 +121,6 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
             imageViewTrashKitchen = (ImageView) itemView
                     .findViewById(R.id.imageViewTrashKitchen);
-
         }
     }
 
@@ -128,5 +130,25 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
     public void setKitchenList(List<Kitchen> kitchenList) {
         this.kitchenList = kitchenList;
+    }
+
+    private void colorCardview(Kitchen_Adapter.kitchenHolder holder, Kitchen kitchen) {
+        if (verifyId(kitchen.getIdKitchen())){
+            holder.cardViewKitchen.setCardBackgroundColor(Color.GREEN);
+        }else{
+            holder.cardViewKitchen.setCardBackgroundColor(Color.RED);
+        }
+    }
+
+    public Boolean verifyId(String id){
+        Boolean isValid;
+        for (Kitchen kitchen : kitchenList){
+            if (kitchen.getIdKitchen().equals(id)){
+                isValid = false;
+            }else{
+                isValid = true;
+            }
+        }
+        return  null;
     }
 }
