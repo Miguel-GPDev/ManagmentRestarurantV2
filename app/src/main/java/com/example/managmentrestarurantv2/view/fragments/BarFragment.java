@@ -33,6 +33,7 @@ public class BarFragment extends Fragment {
 
     ImageView imageViewTrashBar;
 
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -86,6 +87,10 @@ public class BarFragment extends Fragment {
         aSwitchUnion = (Switch) v.findViewById(R.id.switchUnionBar);
 
         imageViewTrashBar = (ImageView) v.findViewById(R.id.imageViewTrashBar);
+
+        bar.setBooking(aSwitchBooking.isChecked());
+        bar.setLocation(aSwitchLocation.isChecked());
+        bar.setUnion(aSwitchUnion.isChecked());
 
         editTextIdBar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -153,6 +158,13 @@ public class BarFragment extends Fragment {
         aSwitchBooking.setChecked(true);
         aSwitchLocation.setChecked(true);
         aSwitchUnion.setChecked(true);
+    }
 
+    public Bar getBar() {
+        return bar;
+    }
+
+    public void setBar(Bar bar) {
+        this.bar = bar;
     }
 }
