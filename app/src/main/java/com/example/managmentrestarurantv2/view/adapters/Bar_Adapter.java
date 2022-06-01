@@ -49,6 +49,9 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         holder.aSwitchLocation.setChecked(bar.getLocation());
         holder.aSwitchUnion.setChecked(bar.getUnion());
 
+        colorCardview(holder, bar);
+
+
         holder.editTextIdBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -64,7 +67,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             public void afterTextChanged(Editable s) {
                 try {
                     barList.get(position ).setIdBar(holder.editTextIdBar.getText().toString());
-
+                    colorCardview(holder, bar);
                 }catch (Exception e){
                     //TODO
                 }
@@ -85,7 +88,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             public void afterTextChanged(Editable s) {
                 try {
                     barList.get(position).setSize(Integer.valueOf(holder.editTextNSeatsBar.getText().toString()));
-
+                    colorCardview(holder, bar);
                 }catch (Exception e){
                     //TODO
                 }
@@ -152,6 +155,26 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
 
             imageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewTrashBar);
 
+            cardViewBar = (CardView) itemView.findViewById(R.id.cardViewBarView);
         }
+    }
+    private void colorCardview(Bar_Adapter.barHolder holder, Bar bar) {
+        if (verifyId(bar.getIdBar())){
+            holder.cardViewBar.setCardBackgroundColor(Color.GREEN);
+        }else{
+            holder.cardViewBar.setCardBackgroundColor(Color.RED);
+        }
+    }
+
+    public Boolean verifyId(String id){
+        Boolean isValid;
+        for (Bar bar : barList){
+            if (bar.getIdBar().equals(id)){
+                isValid = false;
+            }else{
+                isValid = true;
+            }
+        }
+        return  null;
     }
 }
