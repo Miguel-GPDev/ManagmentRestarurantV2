@@ -50,7 +50,9 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         holder.aSwitchLocation.setChecked(table.getLocation());
         holder.aSwitchUnion.setChecked(table.getUnion());
 
-        holder.cardViewTable.setCardBackgroundColor("@color/teal_200");
+        // Color RED si el Id esta repetido
+        colorCardview(holder, table);
+
 
         holder.editTextIdtable.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,6 +69,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             public void afterTextChanged(Editable s) {
                 try {
                     tableList.get(position).setIdMesa(holder.editTextIdtable.getText().toString());
+                    colorCardview(holder, table);
                 }catch (Exception e){
 
                 }
@@ -87,7 +90,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
             public void afterTextChanged(Editable s) {
                 try {
                     tableList.get(position).setSize(Integer.valueOf(holder.editTextSize.getText().toString()));
-
+                    colorCardview(holder, table);
                 }catch (Exception e){
 
                 }
@@ -127,6 +130,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         });
     }
 
+
     @Override
     public int getItemCount() {
         return tableList.size();
@@ -165,6 +169,26 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
 
     public void setTableList(List<Table> tableList) {
         this.tableList = tableList;
+    }
+
+    private void colorCardview(tableViewHolder holder, Table table) {
+        if (verifyId(table.getIdMesa())){
+            holder.cardViewTable.setCardBackgroundColor(Color.GREEN);
+        }else{
+            holder.cardViewTable.setCardBackgroundColor(Color.RED);
+        }
+    }
+
+    public Boolean verifyId(String id){
+        Boolean isValid;
+        for (Table table : tableList){
+            if (table.getIdMesa().equals(id)){
+                isValid = false;
+            }else{
+                isValid = true;
+            }
+        }
+        return  null;
     }
 
 }
