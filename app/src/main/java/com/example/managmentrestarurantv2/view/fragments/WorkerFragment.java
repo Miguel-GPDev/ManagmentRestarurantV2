@@ -388,5 +388,12 @@ public class WorkerFragment extends Fragment {
         }
         return  validId;
     }
+    public Worker getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Worker worker) {
+        this.worker = worker;
+    }
 
 }
