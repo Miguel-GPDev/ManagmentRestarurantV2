@@ -177,4 +177,11 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         }
         return  null;
     }
+    public List<Bar> getBarList() {
+        return barList;
+    }
+
+    public void setBarList(List<Bar> barList) {
+        this.barList = barList;
+    }
 }
