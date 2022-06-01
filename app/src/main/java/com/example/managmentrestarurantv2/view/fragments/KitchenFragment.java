@@ -134,4 +134,12 @@ public class KitchenFragment extends Fragment {
         editTextNWorkersKitchen.setText("");
         aSwitchOpenKitchen.setChecked(true);
     }
+
+    public Kitchen getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(Kitchen kitchen) {
+        this.kitchen = kitchen;
+    }
 }
