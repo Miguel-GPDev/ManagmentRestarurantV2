@@ -12,22 +12,22 @@ public class Table implements Serializable {
     Map<String, Booking> listBooking;
     Boolean union;
     int size;
-    String type; // interio o exterior
+    String idRestaurant;
     Boolean booking;
-    Boolean location;
+    Boolean location; // interio o exterior
     String variable2;
 
     public Table() {
     }
 
     public Table(String idMesa, Map<String, Count> listCount, Map<String, Booking> listBooking
-            , Boolean union, int size, String type, Boolean booking, Boolean location, String variable2) {
+            , Boolean union, int size, String idRestaurant, Boolean booking, Boolean location, String variable2) {
         this.idMesa = idMesa;
         this.listCount = listCount;
         this.listBooking = listBooking;
         this.union = union;
         this.size = size;
-        this.type = type;
+        this.idRestaurant = idRestaurant;
         this.booking = booking;
         this.location = location;
         this.variable2 = variable2;
@@ -73,12 +73,12 @@ public class Table implements Serializable {
         this.size = size;
     }
 
-    public String getType() {
-        return type;
+    public String getIdRestaurant() {
+        return idRestaurant;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIdRestaurant(String idRestaurant) {
+        this.idRestaurant = idRestaurant;
     }
 
     public Boolean getBooking() {
@@ -126,7 +126,7 @@ public class Table implements Serializable {
                 ", listBooking=" + listBooking +
                 ", union=" + union +
                 ", size=" + size +
-                ", type='" + type + '\'' +
+                ", type='" + idRestaurant + '\'' +
                 ", variable='" + booking + '\'' +
                 ", variable1='" + location + '\'' +
                 ", variable2='" + variable2 + '\'' +

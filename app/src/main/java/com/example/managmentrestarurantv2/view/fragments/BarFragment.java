@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.res.R;
+
+import com.example.managmentrestarurantv2.R;
+
 import com.example.managmentrestarurantv2.business.model.Bar;
 
 /**

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Worker;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -97,7 +99,7 @@ public class WorkerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.view_worker, container, false);
-
+        mAuth = FirebaseAuth.getInstance();
         worker.setIdBoss(mAuth.getUid());
 
         spinnerChargeWorker = (Spinner) v.findViewById(R.id.spinner4ChargeWorker);
@@ -113,7 +115,7 @@ public class WorkerFragment extends Fragment {
         editTextSurnameWorker = (EditText) v.findViewById(R.id.editTextSurnameWorker);
         editTextSurname2Worker = (EditText) v.findViewById(R.id.editTextSurname2Worker);
         editTextPhoneWorker = (EditText) v.findViewById(R.id.editTextPhoneWorker);
-        //TODO Enlazar el control el control Adress
+        editTextAdressWorker = (EditText)v.findViewById(R.id.editTextTextAdressWorker);
 
         imageViewCalendarWorker = (ImageView) v.findViewById(R.id.imageView22CalendarWorker);
         imageViewDatesWorker = (ImageView) v.findViewById(R.id.imageView19DatesWorker);

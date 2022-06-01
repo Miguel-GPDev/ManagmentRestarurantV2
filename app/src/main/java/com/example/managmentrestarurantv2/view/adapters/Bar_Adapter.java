@@ -144,7 +144,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         public barHolder(@NonNull View itemView) {
             super(itemView);
             editTextIdBar = (EditText) itemView.findViewById(R.id.editTextIdBar);
-            editTextNSeatsBar = (EditText) itemView.findViewById(R.id.editTextXPersonBar);
+            editTextNSeatsBar = (EditText) itemView.findViewById(R.id.editTextNPersonBar);
 
             aSwitchBooking =(Switch) itemView.findViewById(R.id.switchBookingBar);
             aSwitchLocation = (Switch) itemView.findViewById(R.id.switchLocationBar);

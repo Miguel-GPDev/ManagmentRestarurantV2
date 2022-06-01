@@ -50,6 +50,8 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         holder.aSwitchLocation.setChecked(table.getLocation());
         holder.aSwitchUnion.setChecked(table.getUnion());
 
+        holder.cardViewTable.setCardBackgroundColor("@color/teal_200");
+
         holder.editTextIdtable.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -145,13 +147,14 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         public tableViewHolder(@NonNull View itemView) {
             super(itemView);
             editTextIdtable = (EditText) itemView.findViewById(R.id.editTextIdTable);
-            editTextSize = (EditText) itemView.findViewById(R.id.editTextNpersonTable);
+            editTextSize = (EditText) itemView.findViewById(R.id.editTextNPersonTable);
 
             aSwitchBooking = (Switch) itemView.findViewById(R.id.switchBookingTable);
             aSwitchLocation = (Switch) itemView.findViewById(R.id.switchLocationTable);
             aSwitchUnion = (Switch) itemView.findViewById(R.id.switchUnionTable);
 
             imageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewTrashTable);
+            cardViewTable = (CardView) itemView.findViewById(R.id.cardViewTableView);
 
         }
     }

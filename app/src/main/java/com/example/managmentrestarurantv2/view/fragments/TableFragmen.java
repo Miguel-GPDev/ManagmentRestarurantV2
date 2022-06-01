@@ -12,7 +12,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Table;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +33,8 @@ public class TableFragmen extends Fragment {
     Switch aSwitchTableLocation;
 
     ImageView imageViewCleanTable;
+
+    FirebaseAuth mAuth;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,14 +81,20 @@ public class TableFragmen extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.view_table, container, false);
 
+        mAuth = FirebaseAuth.getInstance();
+
         editTextIdTable = (EditText) v.findViewById(R.id.editTextIdTable);
-        editTextTableNPerson = (EditText) v.findViewById(R.id.editTextXPersonTable);
+        editTextTableNPerson = (EditText) v.findViewById(R.id.editTextNPersonTable);
 
         aSwitchTableBooking = (Switch) v.findViewById(R.id.switchBookingTable);
         aSwitchTableLocation = (Switch) v.findViewById(R.id.switchLocationTable);
         aSwitchTableUnion = (Switch) v.findViewById(R.id.switchUnionTable);
 
         imageViewCleanTable = (ImageView) v.findViewById(R.id.imageViewTrashTable);
+
+        table.setLocation(aSwitchTableLocation.isChecked());
+        table.setBooking(aSwitchTableBooking.isChecked());
+        table.setUnion(aSwitchTableUnion.isChecked());
 
         editTextIdTable.addTextChangedListener(new TextWatcher() {
             @Override
@@ -154,5 +165,13 @@ public class TableFragmen extends Fragment {
         aSwitchTableUnion.setChecked(true);
         aSwitchTableLocation.setChecked(true);
         aSwitchTableBooking.setChecked(true);
+    }
+
+    public Table getTable() {
+        return table;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
     }
 }

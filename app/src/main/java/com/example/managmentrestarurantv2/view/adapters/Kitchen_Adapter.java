@@ -109,7 +109,7 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
         public kitchenHolder(@NonNull View itemView) {
             super(itemView);
             editTextNworkers = (EditText) itemView
-                    .findViewById(R.id.editTextXWorkers);
+                    .findViewById(R.id.editTextNWorkersKitchen);
             editTextIdKitchen = (EditText) itemView
                     .findViewById(R.id.editTextIdKitchen);
 

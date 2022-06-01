@@ -11,7 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.res.R;
+
+import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Kitchen;
 
 /**
@@ -72,14 +73,14 @@ public class KitchenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_blank, container, false);
+        View v = inflater.inflate(R.layout.view_kitchen, container, false);
 
         imageViewCleankitchen = (ImageView) v.findViewById(R.id.imageViewTrashKitchen);
 
         editTextIdKitchen = (EditText) v.findViewById(R.id.editTextIdKitchen);
         editTextNWorkersKitchen = (EditText) v.findViewById(R.id.editTextNWorkersKitchen);
 
-        aSwitchOpenKitchen = (Switch) v.findViewById(R.id.switchOpenKitchenDashBoard);
+        aSwitchOpenKitchen = (Switch) v.findViewById(R.id.switchOpenKitchen);
 
         editTextIdKitchen.addTextChangedListener(new TextWatcher() {
             @Override
