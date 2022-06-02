@@ -9,9 +9,9 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_restaurant_c_r_u_d.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/view_bar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_bar.xml" value="0.375" />
         <entry key="app/src/main/res/layout/view_booking.xml" value="0.20208333333333334" />
-        <entry key="app/src/main/res/layout/view_kitchen.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/view_kitchen.xml" value="0.375" />
         <entry key="app/src/main/res/layout/view_table.xml" value="0.45" />
         <entry key="app/src/main/res/layout/view_worker.xml" value="0.335" />
       </map>

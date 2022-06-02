@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="407dp"
-        android:layout_height="501dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="388dp"
-                android:layout_height="343dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView21TelephoneWorker">
@@ -29,8 +30,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ConstraintLayoutInfoWorker"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:visibility="gone">
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
 
                     <Spinner
                         android:id="@+id/spinner4ChargeWorker"
@@ -48,6 +49,7 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView10"
                         app:layout_constraintTop_toBottomOf="@+id/spinner4ChargeWorker"
                         tools:ignore="SpeakableTextPresentCheck" />
@@ -85,9 +87,9 @@
                     <TextView
                         android:id="@+id/textView8BossWorker"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="20dp"
                         android:text="TextView"
                         android:textAlignment="gravity"
                         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -116,7 +118,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ConstraintLayoutCalendar"
-                    android:layout_width="393dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone">
 
@@ -191,7 +193,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ConstraintLayoutTelephone"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:visibility="gone">
 
                     <EditText
@@ -231,9 +233,9 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ConstraintLayoutDates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="314dp"
-                    android:visibility="visible">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
 
                     <EditText
                         android:id="@+id/editTextNameWorker"

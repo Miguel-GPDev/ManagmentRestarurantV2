@@ -52,10 +52,6 @@ import java.util.*;
 public class FragmentRestaurantCRUD extends Fragment {
     Restaurant restaurant = new Restaurant();
 
-    Table_Adapter table_adapter;
-    Bar_Adapter bar_adapter;
-    Kitchen_Adapter kitchen_adapter;
-    Worker_Adapter worker_adapter;
 
     List<Restaurant> restaurantList;
     List<Table> tableList = new ArrayList<>();
@@ -68,6 +64,11 @@ public class FragmentRestaurantCRUD extends Fragment {
     List<Product> listProducts = new ArrayList<>();
     List<Worker> workerList = new ArrayList<>();
 
+
+    Table_Adapter table_adapter ;
+    Bar_Adapter bar_adapter ;
+    Kitchen_Adapter kitchen_adapter;
+    Worker_Adapter worker_adapter ;
 
     ImageView imageViewAddTable;
     ImageView imageViewDeleteTable;
@@ -169,6 +170,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         imageViewAddTable = (ImageView) v.findViewById(R.id.imageView17AddTable);
         imageViewAddBar = (ImageView) v.findViewById(R.id.imageView17AddBar);
         imageViewAddKitchen = (ImageView) v.findViewById(R.id.imageView17AddKitchen);
+        imageViewAddWorker = (ImageView) v.findViewById(R.id.imageView17AddWorker);
 
         imageViewDeleteTable  = (ImageView) v.findViewById(R.id.imageViewTrashTableDashBoard);
         imageViewDeleteBar = (ImageView) v.findViewById(R.id.imageViewTrashBarDashBoard);
@@ -192,15 +194,17 @@ public class FragmentRestaurantCRUD extends Fragment {
         recyclerViewKitchen = (RecyclerView) v.findViewById(R.id.RVKitchen);
         recyclerViewWorker = (RecyclerView) v.findViewById(R.id.RVWorker);
 
-        workerFragment();
         tableFragment();
+        kitchenFragment();
+        barFragment();
+        workerFragment();
 
         imageViewAddTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-                Table table = tableFragmen.getTable();
+                Table table = new Table();
+                table = tableFragmen.getTable();
 
                 if (editTextIdRestaurante.getText().toString() != null){
                     table.setIdRestaurant(
@@ -210,19 +214,17 @@ public class FragmentRestaurantCRUD extends Fragment {
                 table.setListBooking(bookinList);
                 table.setListCount(countList);
 
-                if (table_adapter.getTableList() == null){
+                if (table_adapter == null){
                     addTableList(table);
                     recyclerViewTable.setVisibility(View.VISIBLE);
                 }else {
-                    for (Table table1 : table_adapter.getTableList()){
-                        if (table1.getIdMesa().equals(table.getIdMesa())){
-                            //TODO Mensaje de Id repetido
-                        }else{
-                            addTableList(table);
-                            recyclerViewTable.setVisibility(View.VISIBLE);
-                        }
-                    }
+                    addTableList(table);
+                    recyclerViewTable.setVisibility(View.VISIBLE);
                 }
+                getParentFragmentManager().beginTransaction().
+                        remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutTable)).commit();
+                tableFragment();
+                int x =  table_adapter.getTableList().size();
             }
         });
 

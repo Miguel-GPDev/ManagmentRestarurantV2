@@ -168,7 +168,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
     }
 
     public Boolean verifyId(String id){
-        Boolean isValid;
+        Boolean isValid = null;
         for (Bar bar : barList){
             if (bar.getIdBar().equals(id)){
                 isValid = false;
@@ -176,7 +176,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
                 isValid = true;
             }
         }
-        return  null;
+        return  isValid;
     }
     public List<Bar> getBarList() {
         return barList;

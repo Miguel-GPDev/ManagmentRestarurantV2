@@ -55,6 +55,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         colorCardview(holder, table);
 
 
+
         holder.editTextIdtable.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -181,7 +182,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
     }
 
     public Boolean verifyId(String id){
-        Boolean isValid;
+        Boolean isValid = null;
         for (Table table : tableList){
             if (table.getIdMesa().equals(id)){
                 isValid = false;
@@ -189,7 +190,8 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
                 isValid = true;
             }
         }
-        return  null;
+        return  isValid;
     }
+
 
 }

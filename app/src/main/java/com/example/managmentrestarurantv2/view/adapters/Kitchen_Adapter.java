@@ -143,7 +143,7 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
     }
 
     public Boolean verifyId(String id){
-        Boolean isValid;
+        Boolean isValid = null;
         for (Kitchen kitchen : kitchenList){
             if (kitchen.getIdKitchen().equals(id)){
                 isValid = false;
@@ -151,6 +151,6 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
                 isValid = true;
             }
         }
-        return  null;
+        return  isValid;
     }
 }
