@@ -55,4 +55,12 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
             //TODO ENLAZAR CONTROLES
         }
     }
+
+    public List<Worker> getWorkerList() {
+        return workerList;
+    }
+
+    public void setWorkerList(List<Worker> workerList) {
+        this.workerList = workerList;
+    }
 }

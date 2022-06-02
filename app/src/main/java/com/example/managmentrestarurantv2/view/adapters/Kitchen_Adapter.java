@@ -2,6 +2,7 @@ package com.example.managmentrestarurantv2.view.adapters;
 
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 

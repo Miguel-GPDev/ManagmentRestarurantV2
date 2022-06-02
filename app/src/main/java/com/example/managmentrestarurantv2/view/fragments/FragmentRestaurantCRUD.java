@@ -32,12 +32,15 @@ import com.example.managmentrestarurantv2.business.model.Kitchen;
 import com.example.managmentrestarurantv2.business.model.MenuRestaurant;
 import com.example.managmentrestarurantv2.business.model.Product;
 import com.example.managmentrestarurantv2.business.model.Restaurant;
+import com.example.managmentrestarurantv2.business.model.Seat;
 import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
 import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.Worker;
 import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
+import com.example.managmentrestarurantv2.view.adapters.Worker_Adapter;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.*;
 
@@ -102,7 +105,7 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     Map<String, Count> countList = new HashMap<>();
     Map<String, Booking> bookinList = new HashMap<>();
-    Map<String,Seat > seatList = new HashMap<>();
+    Map<String, Seat> seatList = new HashMap<>();
 
     FirebaseAuth mAuth;
 

@@ -13,7 +13,7 @@ public class Bar implements Serializable {
     Boolean union;
     int size;
     Map<String,Seat > seatList;
-    String type; // interio o exterior
+    String idRestaurant; // interio o exterior
     Boolean booking;
     Boolean location; // true = Interior False = Exterior
     String variable2;
@@ -24,14 +24,14 @@ public class Bar implements Serializable {
     public Bar(String idBar, Map<String, Count> listCount, Map<String
             , Booking> listBooking
             , Boolean union, int size, Map<String, Seat> seatList
-            , String type, Boolean booking, Boolean location, String variable2) {
+            , String idRestaurant, Boolean booking, Boolean location, String variable2) {
         this.idBar = idBar;
         this.listCount = listCount;
         this.listBooking = listBooking;
         this.union = union;
         this.size = size;
         this.seatList = seatList;
-        this.type = type;
+        this.idRestaurant = idRestaurant;
         this.booking = booking;
         this.location = location;
         this.variable2 = variable2;
@@ -77,12 +77,12 @@ public class Bar implements Serializable {
         this.size = size;
     }
 
-    public String getType() {
-        return type;
+    public String getIdRestaurant() {
+        return idRestaurant;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIdRestaurant(String idRestaurant) {
+        this.idRestaurant = idRestaurant;
     }
 
     public Boolean getBooking() {
@@ -138,7 +138,7 @@ public class Bar implements Serializable {
                 ", listBooking=" + listBooking +
                 ", union=" + union +
                 ", size=" + size +
-                ", type='" + type + '\'' +
+                ", type='" + idRestaurant + '\'' +
                 ", Booking=" + booking +
                 ", location=" + location +
                 ", variable2='" + variable2 + '\'' +

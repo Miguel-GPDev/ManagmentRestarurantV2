@@ -11,7 +11,7 @@ public class Kitchen implements Serializable {
     String size;
     String nWorkers;
     Boolean open;
-    String variable;
+    String idRestaurant;
     String variable1;
     String variable2;
 
@@ -19,13 +19,13 @@ public class Kitchen implements Serializable {
     }
 
     public Kitchen(String idKitchen, String name, String size, String nWorkers
-            , Boolean open, String variable, String variable1, String variable2) {
+            , Boolean open, String idRestaurant, String variable1, String variable2) {
         this.idKitchen = idKitchen;
         this.name = name;
         this.size = size;
         this.nWorkers = nWorkers;
         this.open = open;
-        this.variable = variable;
+        this.idRestaurant = idRestaurant;
         this.variable1 = variable1;
         this.variable2 = variable2;
     }
@@ -70,12 +70,12 @@ public class Kitchen implements Serializable {
         this.open = open;
     }
 
-    public String getVariable() {
-        return variable;
+    public String getIdRestaurant() {
+        return idRestaurant;
     }
 
-    public void setVariable(String variable) {
-        this.variable = variable;
+    public void setIdRestaurant(String idRestaurant) {
+        this.idRestaurant = idRestaurant;
     }
 
     public String getVariable1() {
@@ -115,7 +115,7 @@ public class Kitchen implements Serializable {
                 ", size='" + size + '\'' +
                 ", nWorkers='" + nWorkers + '\'' +
                 ", available=" + open +
-                ", variable='" + variable + '\'' +
+                ", variable='" + idRestaurant + '\'' +
                 ", variable1='" + variable1 + '\'' +
                 ", variable2='" + variable2 + '\'' +
                 '}';

@@ -1,6 +1,7 @@
 package com.example.managmentrestarurantv2.view.adapters;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
