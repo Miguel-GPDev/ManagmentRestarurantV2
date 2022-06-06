@@ -15,8 +15,8 @@ import android.os.Bundle;
 import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Restaurant;
 import com.example.managmentrestarurantv2.integration.CallBackFirebase;
-import com.example.managmentrestarurantv2.integration.RestaurantRepository;
-import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
 
 import com.example.managmentrestarurantv2.view.fragments.FragmentRestaurantCRUD;
 import com.google.firebase.auth.FirebaseAuth;
@@ -58,6 +58,7 @@ public class DashBoardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 FragmentRestaurantCRUD fragmentRestaurantCRUD = new FragmentRestaurantCRUD();
+                fragmentRestaurantCRUD.setRestaurantList(restaurantList);
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.ConstraintLayoutDashBoard,fragmentRestaurantCRUD);
@@ -67,8 +68,8 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     private void getRestaurants() {
-        RestaurantRepository restaurantRepository = new RestaurantRepositoryFirebaseImpl();
-        restaurantRepository.getAll(mAuth.getUid(), new CallBackFirebase() {
+        RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseFirebaseImpl();
+        restaurantRepositoryFirebase.getAll(mAuth.getUid(), new CallBackFirebase() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
                 restaurantList.clear();

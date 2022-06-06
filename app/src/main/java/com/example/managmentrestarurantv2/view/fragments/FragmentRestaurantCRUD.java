@@ -21,7 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Bar;
@@ -36,6 +36,8 @@ import com.example.managmentrestarurantv2.business.model.Seat;
 import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
 import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.Worker;
+import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
 import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
@@ -43,6 +45,7 @@ import com.example.managmentrestarurantv2.view.adapters.Worker_Adapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +86,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     RecyclerView recyclerViewKitchen;
     RecyclerView recyclerViewWorker;
 
-    Button buttoncreateRestaurant;
+    Button buttonCreateRestaurant;
     Button buttonCancel;
 
     CardView cardViewTableExpand;
@@ -107,6 +110,8 @@ public class FragmentRestaurantCRUD extends Fragment {
     Map<String, Count> countList = new HashMap<>();
     Map<String, Booking> bookinList = new HashMap<>();
     Map<String, Seat> seatList = new HashMap<>();
+
+    Boolean allOk;
 
     FirebaseAuth mAuth;
 
@@ -181,7 +186,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         cardViewKitchenExpand = (CardView) v.findViewById(R.id.cardViewKitchenExpand);
         cardViewWorkerExpand = (CardView) v.findViewById(R.id.cardViewWorkerExpand);
 
-        buttoncreateRestaurant = (Button) v.findViewById(R.id.buttonCreatRestaurantDashBoard);
+        buttonCreateRestaurant = (Button) v.findViewById(R.id.buttonCreatRestaurantDashBoard);
         buttonCancel = (Button) v.findViewById(R.id.button2CancelCreateRestaurantDashBoard);
 
         constraintLayoutTable = (ConstraintLayout) v.findViewById(R.id.constraintLayoutTable);
@@ -206,25 +211,28 @@ public class FragmentRestaurantCRUD extends Fragment {
                 Table table = new Table();
                 table = tableFragmen.getTable();
 
-                if (editTextIdRestaurante.getText().toString() != null){
-                    table.setIdRestaurant(
-                            editTextIdRestaurante.getText().toString()
-                    );
-                }
-                table.setListBooking(bookinList);
-                table.setListCount(countList);
+                if (editTextIdRestaurante.getText().toString() != null
+                        &&
+                        validIdResturant(editTextIdRestaurante.getText().toString())) {
 
-                if (table_adapter == null){
-                    addTableList(table);
-                    recyclerViewTable.setVisibility(View.VISIBLE);
-                }else {
-                    addTableList(table);
-                    recyclerViewTable.setVisibility(View.VISIBLE);
+                            table.setIdRestaurant(editTextIdRestaurante.getText().toString());
+                            table.setListBooking(bookinList);
+                            table.setListCount(countList);
+
+                            if (isNumber(table.getIdMesa())
+                                    &&
+                                    isNumber(String.valueOf(table.getSize()))) {
+                                addTableList(table);
+                                recyclerViewTable.setVisibility(View.VISIBLE);
+
+                                getParentFragmentManager().beginTransaction()
+                                    .remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutTable))
+                                    .commit();
+                                tableFragment();
+                            }else{
+                            //TODO MENSAJE DE QUE ALGO ESTA MAL
+                        }
                 }
-                getParentFragmentManager().beginTransaction().
-                        remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutTable)).commit();
-                tableFragment();
-                int x =  table_adapter.getTableList().size();
             }
         });
 
@@ -233,29 +241,26 @@ public class FragmentRestaurantCRUD extends Fragment {
             public void onClick(View v) {
                 Bar bar = barFragment.getBar();
 
-                if (editTextIdRestaurante.getText().toString() != null){
-                    bar.setIdRestaurant(
-                            editTextIdRestaurante.getText().toString()
-                    );
-                }else{
-                    //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
-                }
-                bar.setListBooking(bookinList);
-                bar.setListCount(countList);
-                bar.setSeatList(seatList);
+                if (editTextIdRestaurante.getText().toString() != null &&
+                        validIdResturant(editTextIdRestaurante.getText().toString())){
 
-                if (bar_adapter.getBarList() == null){
-                    addBarList(bar);
-                    recyclerViewBar.setVisibility(View.VISIBLE);
-                }else {
-                    for (Bar bar1 : bar_adapter.getBarList()){
-                        if (bar1.getIdBar().equals(bar1.getIdBar())){
-                            //TODO Mensaje de Id repetido
-                        }else{
-                            addBarList(bar);
-                            recyclerViewBar.setVisibility(View.VISIBLE);
-                        }
+                    bar.setIdRestaurant(editTextIdRestaurante.getText().toString());
+
+                    if (isNumber(bar.getIdBar()) && isNumber(String.valueOf(bar.getSize()))){
+                        bar.setListBooking(bookinList);
+                        bar.setListCount(countList);
+                        bar.setSeatList(seatList);
+
+                        addBarList(bar);
+                        recyclerViewBar.setVisibility(View.VISIBLE);
+
+                        getParentFragmentManager().beginTransaction()
+                                .remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutBar))
+                                .commit();
+                        barFragment();
                     }
+                }else{
+                    //TODO MENSAJE EL ID YA EXISTE
                 }
             }
         });
@@ -264,26 +269,21 @@ public class FragmentRestaurantCRUD extends Fragment {
             public void onClick(View v) {
                 Kitchen kitchen = kitchenFragment.getKitchen();
 
-                if (editTextIdRestaurante.getText().toString() != null){
-                    kitchen.setIdRestaurant(
-                            editTextIdRestaurante.getText().toString()
-                    );
+                if (editTextIdRestaurante.getText().toString() != null
+                        && validIdResturant(editTextIdRestaurante.getText().toString())){
+
+                    kitchen.setIdRestaurant(editTextIdRestaurante.getText().toString());
+                    if (isNumber(kitchen.getIdKitchen()) && isNumber(String.valueOf(kitchen.getnWorkers()))){
+                        addKitchenList(kitchen);
+                        recyclerViewKitchen.setVisibility(View.VISIBLE);
+
+                        getParentFragmentManager().beginTransaction()
+                                .remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutKitchen))
+                                .commit();
+                        kitchenFragment();
+                    }
                 }else{
                     //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
-                }
-
-                if (kitchen_adapter.getKitchenList() == null){
-                    addKitchenList(kitchen);
-                    recyclerViewKitchen.setVisibility(View.VISIBLE);
-                }else {
-                    for (Kitchen kitchen1 : kitchen_adapter.getKitchenList()){
-                        if (kitchen1.getIdKitchen().equals(kitchen.getIdKitchen())){
-                            //TODO Mensaje de Id repetido
-                        }else{
-                            addKitchenList(kitchen);
-                            recyclerViewKitchen.setVisibility(View.VISIBLE);
-                        }
-                    }
                 }
             }
         });
@@ -293,26 +293,21 @@ public class FragmentRestaurantCRUD extends Fragment {
                 Worker worker = workerFragment.getWorker();
                 worker.setIdBoss(mAuth.getUid());
 
-                if (editTextIdRestaurante.getText().toString() != null){
-                    worker.setIdRestaurant(
-                            editTextIdRestaurante.getText().toString()
-                    );
+                if (editTextIdRestaurante.getText().toString() != null
+                        && validIdResturant(editTextIdRestaurante.getText().toString())){
+
+                    worker.setIdRestaurant(editTextIdRestaurante.getText().toString());
+                    if (noEmpty(worker.getNif()) && noEmpty(worker.getEmail())){
+                        addWorkerList(worker);
+                        recyclerViewWorker.setVisibility(View.VISIBLE);
+
+                        getParentFragmentManager().beginTransaction()
+                                .remove(getParentFragmentManager().findFragmentById(R.id.frameLayoutWorker))
+                                .commit();
+                        workerFragment();
+                    }
                 }else{
                     //TODO MENSAJE DE QUE FALTA ID DEL RESTAURANTE
-                }
-
-                if (worker_adapter.getWorkerList() == null){
-                    addWorkerList(worker);
-                    recyclerViewKitchen.setVisibility(View.VISIBLE);
-                }else {
-                    for (Worker worker1 : worker_adapter.getWorkerList()){
-                        if (worker1.getNif().equals(worker.getNif())){
-                            //TODO Mensaje de Id repetido
-                        }else{
-                            addWorkerList(worker);
-                            recyclerViewWorker.setVisibility(View.VISIBLE);
-                        }
-                    }
                 }
             }
         });
@@ -361,11 +356,52 @@ public class FragmentRestaurantCRUD extends Fragment {
             }
         });
 
-        buttoncreateRestaurant.setOnClickListener(new View.OnClickListener() {
+        buttonCreateRestaurant.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
+                /*
+                Before to create the restauratn is necessary to verify the Id in alls List
+                 */
+                if (
+                isOkTableList(table_adapter.getTableList())
+                        &&
+                isOkBarList(bar_adapter.getBarList())
+                        &&
+                isOkKitchenList(kitchen_adapter.getKitchenList())
+                        &&
+                isOkWorkerList(worker_adapter.getWorkerList())
+                ){
+                    /*/
+                    -IF ALL IS TRUE , CONVERT LIST TO MAP
+                    -ADD THE MAPS TO THE RESTAURANT
+                    -CREATE IN THE DB
+                    -CREATE THE USERS (WORKERS)
+                     */
+                    Map<String, Table> tableMap = tableList.stream()
+                            .collect(Collectors.toMap(x->x.getIdMesa(), x -> x));
+                    Map<String, Bar> barMap = barList.stream()
+                            .collect(Collectors.toMap(x-> x.getIdBar(), x-> x));
+                    Map<String, Kitchen> kitchenMap = kitchenList.stream()
+                            .collect(Collectors.toMap(x-> x.getIdKitchen(), x-> x));
+                    Map<String, Worker> workerMap = workerList.stream()
+                            .collect(Collectors.toMap(x-> x.getNif(), x-> x));
 
+                    restaurant.setIdRestaurant(editTextIdRestaurante.getText().toString());
+                    restaurant.setName(editTextIdRestaurante.getText().toString());
+                    restaurant.setEmail("falat añadir campo email");
+                    restaurant.setLisBar(barMap);
+                    restaurant.setListWorkers(workerMap);
+                    restaurant.setListTables(tableMap);
+                    restaurant.setListKitchen(kitchenMap);
+
+                    RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseFirebaseImpl();
+                    restaurantRepositoryFirebase.create(restaurant);
+
+                    for (Worker worker1 : workerList){
+                        createWorkers(worker1);
+                    }
+                }
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {
@@ -376,6 +412,70 @@ public class FragmentRestaurantCRUD extends Fragment {
         });
 
         return v;
+    }
+
+    private void createWorkers(Worker worker) {
+
+    }
+
+    private Boolean isOkWorkerList(List<Worker> workerList) {
+        boolean isOk = false;
+        for (int i = 0 ; i < workerList.size() ; i++){
+            for (int j = i + 1 ; j < workerList.size() ; j++){
+                if (workerList.get(i).getId().equals(workerList.get(j).getId())){
+                    isOk = false;
+                }
+                else{
+                    isOk = true;
+                }
+            }
+        }
+        return isOk;
+    }
+
+    private Boolean isOkKitchenList(List<Kitchen> kitchenList) {
+        boolean isOk = false;
+        for (int i = 0 ; i < kitchenList.size() ; i++){
+            for (int j = i + 1 ; j < kitchenList.size() ; j++){
+                if (kitchenList.get(i).getIdKitchen().equals(kitchenList.get(j).getIdKitchen())){
+                    isOk = false;
+                }
+                else{
+                    isOk = true;
+                }
+            }
+        }
+        return isOk;
+    }
+
+    private Boolean isOkBarList(List<Bar> barList) {
+        boolean isOk = false;
+        for (int i = 0 ; i < barList.size() ; i++){
+            for (int j = i + 1 ; j < barList.size() ; j++){
+                if (barList.get(i).getIdBar().equals(barList.get(j).getIdBar())){
+                    isOk = false;
+                }
+                else{
+                    isOk = true;
+                }
+            }
+        }
+        return isOk;
+    }
+
+    private Boolean isOkTableList(List<Table> tableList) {
+        boolean isOk = false;
+        for (int i = 0 ; i < tableList.size() ; i++){
+            for (int j = i + 1 ; j < tableList.size() ; j++){
+                if (tableList.get(i).getIdMesa().equals(tableList.get(j).getIdMesa())){
+                    isOk = false;
+                }
+                else{
+                    isOk = true;
+                }
+            }
+        }
+        return isOk;
     }
 
     private void addWorkerList(Worker worker) {
@@ -430,7 +530,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         recyclerViewBar.setAdapter(bar_adapter);
     }
 
-    private Boolean checkNumber(String number){
+    private Boolean isNumber(String number){
         Boolean valid;
         try {
             Integer.parseInt(number);
@@ -451,14 +551,6 @@ public class FragmentRestaurantCRUD extends Fragment {
         return  validId;
     }
 
-    public List<Restaurant> getRestaurantList() {
-        return restaurantList;
-    }
-
-    public void setRestaurantList(List<Restaurant> restaurantList) {
-        this.restaurantList = restaurantList;
-    }
-
     private void workerFragment(){
         AppCompatActivity activity = (AppCompatActivity) getContext();
         WorkerFragment workerFragment = new WorkerFragment();
@@ -475,7 +567,6 @@ public class FragmentRestaurantCRUD extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayoutTable,tableFragmen);
         fragmentTransaction.commit();
-
     }
 
     private void barFragment (){
@@ -493,5 +584,27 @@ public class FragmentRestaurantCRUD extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayoutKitchen,kitchenFragment);
         fragmentTransaction.commit();
+    }
+
+
+    private boolean validIdResturant(String id){
+        Boolean isOk = false;
+        for (Restaurant restaurant1 : getRestaurantList()){
+            if (id.equals(editTextIdRestaurante.getText().toString())){
+                Toast.makeText(getContext(), "Cambia el Id", Toast.LENGTH_SHORT).show();
+                isOk = false;
+            }
+            else{
+                isOk = true;
+            }
+        }
+        return isOk;
+    }
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
+    public void setRestaurantList(List<Restaurant> restaurantList) {
+        this.restaurantList = restaurantList;
     }
 }

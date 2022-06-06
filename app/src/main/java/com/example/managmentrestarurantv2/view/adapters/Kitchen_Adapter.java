@@ -48,8 +48,6 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
         holder.aSwitchOpenKitchen.setChecked(kitchen.getOpen());
 
-        colorCardview(holder, kitchen);
-
         holder.imageViewTrashKitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +71,6 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
             @Override
             public void afterTextChanged(Editable s) {
                 kitchenList.get(position).setnWorkers(holder.editTextNworkers.getText().toString());
-                colorCardview(holder, kitchen);
             }
         });
 
@@ -91,7 +88,6 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
             @Override
             public void afterTextChanged(Editable s) {
                 kitchenList.get(position).setIdKitchen(holder.editTextIdKitchen.getText().toString());
-                colorCardview(holder, kitchen);
             }
         });
     }
@@ -134,23 +130,4 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
         this.kitchenList = kitchenList;
     }
 
-    private void colorCardview(Kitchen_Adapter.kitchenHolder holder, Kitchen kitchen) {
-        if (verifyId(kitchen.getIdKitchen())){
-            holder.cardViewKitchen.setCardBackgroundColor(Color.GREEN);
-        }else{
-            holder.cardViewKitchen.setCardBackgroundColor(Color.RED);
-        }
-    }
-
-    public Boolean verifyId(String id){
-        Boolean isValid = null;
-        for (Kitchen kitchen : kitchenList){
-            if (kitchen.getIdKitchen().equals(id)){
-                isValid = false;
-            }else{
-                isValid = true;
-            }
-        }
-        return  isValid;
-    }
 }
