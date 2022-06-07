@@ -126,7 +126,11 @@ public class TableFragmen extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                table.setSize(Integer.valueOf(editTextTableNPerson.getText().toString()));
+                if (editTextTableNPerson.getText().toString().equals("")){
+
+                }else{
+                    table.setSize(Integer.valueOf(editTextTableNPerson.getText().toString()));
+                }
             }
         });
 

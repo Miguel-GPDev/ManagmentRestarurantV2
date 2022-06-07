@@ -16,7 +16,7 @@ import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Restaurant;
 import com.example.managmentrestarurantv2.integration.CallBackFirebase;
 import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
-import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 
 import com.example.managmentrestarurantv2.view.fragments.FragmentRestaurantCRUD;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,7 +68,7 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     private void getRestaurants() {
-        RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseFirebaseImpl();
+        RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseImpl();
         restaurantRepositoryFirebase.getAll(mAuth.getUid(), new CallBackFirebase() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {

@@ -293,7 +293,11 @@ public class WorkerFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                worker.setContract(Integer.parseInt(editTextContracWorker.getText().toString()));
+                if (editTextContracWorker.getText().toString().equals("")){
+
+                }else{
+                    worker.setContract(Integer.parseInt(editTextContracWorker.getText().toString()));
+                }
             }
         });
         editTextAdressWorker.addTextChangedListener(new TextWatcher() {
@@ -395,5 +399,4 @@ public class WorkerFragment extends Fragment {
     public void setWorker(Worker worker) {
         this.worker = worker;
     }
-
 }

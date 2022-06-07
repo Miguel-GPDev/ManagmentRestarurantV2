@@ -4,7 +4,7 @@ package com.example.managmentrestarurantv2.presentation;
 import com.example.managmentrestarurantv2.business.model.Restaurant;
 import com.example.managmentrestarurantv2.business.services.RestaurantServices;
 import com.example.managmentrestarurantv2.business.services.impl.RestaurantFirebaseImpl;
-import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class RestaurantController {
     }
     public Restaurant read (String idRestaurant){
         restaurantServices.read(idRestaurant);
-        return RestaurantRepositoryFirebaseFirebaseImpl.restaurant;
+        return RestaurantRepositoryFirebaseImpl.restaurant;
     }
     public Boolean update (String idRestaurante){
         return null;

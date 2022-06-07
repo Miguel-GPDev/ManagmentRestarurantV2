@@ -37,7 +37,7 @@ import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
 import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.Worker;
 import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
-import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
@@ -395,7 +395,8 @@ public class FragmentRestaurantCRUD extends Fragment {
                     restaurant.setListTables(tableMap);
                     restaurant.setListKitchen(kitchenMap);
 
-                    RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseFirebaseImpl();
+                    RestaurantRepositoryFirebase restaurantRepositoryFirebase =
+                            new RestaurantRepositoryFirebaseImpl();
                     restaurantRepositoryFirebase.create(restaurant);
 
                     for (Worker worker1 : workerList){
@@ -494,6 +495,7 @@ public class FragmentRestaurantCRUD extends Fragment {
     private void addTableList(Table table) {
         tableList.add(table);
         uploadAdapterTable(tableList);
+        lastPositionRV();
     }
 
     private void uploadAdapterTable(List<Table> tableList) {
@@ -577,6 +579,7 @@ public class FragmentRestaurantCRUD extends Fragment {
         fragmentTransaction.replace(R.id.frameLayoutBar,barFragment);
         fragmentTransaction.commit();
     }
+
     private void kitchenFragment (){
         AppCompatActivity activity = (AppCompatActivity) getContext();
         kitchenFragment = new KitchenFragment();
@@ -586,17 +589,20 @@ public class FragmentRestaurantCRUD extends Fragment {
         fragmentTransaction.commit();
     }
 
-
     private boolean validIdResturant(String id){
         Boolean isOk = false;
-        for (Restaurant restaurant1 : getRestaurantList()){
-            if (id.equals(editTextIdRestaurante.getText().toString())){
-                Toast.makeText(getContext(), "Cambia el Id", Toast.LENGTH_SHORT).show();
-                isOk = false;
+        if(getRestaurantList().size() > 0){
+            for (Restaurant restaurant1 : getRestaurantList()){
+                if (id.equals(editTextIdRestaurante.getText().toString())){
+                    Toast.makeText(getContext(), "Cambia el Id", Toast.LENGTH_SHORT).show();
+                    isOk = false;
+                }
+                else{
+                    isOk = true;
+                }
             }
-            else{
-                isOk = true;
-            }
+        }else{
+            isOk = true;
         }
         return isOk;
     }
@@ -606,5 +612,8 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     public void setRestaurantList(List<Restaurant> restaurantList) {
         this.restaurantList = restaurantList;
+    }
+    private void lastPositionRV(){
+        recyclerViewTable.scrollToPosition(tableList.size() - 1);
     }
 }

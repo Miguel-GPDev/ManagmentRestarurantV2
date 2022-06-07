@@ -4,7 +4,7 @@ import com.example.managmentrestarurantv2.business.model.Restaurant;
 import com.example.managmentrestarurantv2.business.services.RestaurantServices;
 import com.example.managmentrestarurantv2.integration.CallBackFirebase;
 import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
-import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class RestaurantFirebaseImpl implements RestaurantServices {
 
-    RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseFirebaseImpl();
+    RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseImpl();
 
     @Override
     public Boolean create(Restaurant restaurant) {

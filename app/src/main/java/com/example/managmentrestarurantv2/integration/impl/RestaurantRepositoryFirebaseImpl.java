@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RestaurantRepositoryFirebaseFirebaseImpl implements RestaurantRepositoryFirebase {
+public class RestaurantRepositoryFirebaseImpl implements RestaurantRepositoryFirebase {
     public static Restaurant restaurant = new Restaurant();
     public static List<Restaurant> listRestaurants = new ArrayList<>();
 
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
 
-    public RestaurantRepositoryFirebaseFirebaseImpl() {
+    public RestaurantRepositoryFirebaseImpl() {
     }
 
     @Override
