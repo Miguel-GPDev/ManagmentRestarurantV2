@@ -121,7 +121,11 @@ public class BarFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                bar.setSize(Integer.valueOf(editTextNSeats.getText().toString()));
+                if (editTextNSeats.getText().toString().equals("")){
+
+                }else{
+                    bar.setSize(Integer.valueOf(editTextNSeats.getText().toString()));
+                }
             }
         });
         aSwitchUnion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

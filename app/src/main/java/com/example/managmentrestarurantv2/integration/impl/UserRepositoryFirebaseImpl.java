@@ -1,6 +1,5 @@
 package com.example.managmentrestarurantv2.integration.impl;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.example.managmentrestarurantv2.business.model.User;
@@ -34,7 +33,7 @@ public class UserRepositoryFirebaseImpl implements UserRepository {
 			user.setTelefono(defecto);
 			user.setType(defecto);
 			user.setVariable1(defecto);
-			user.setVariable2(defecto);
+			user.setDateContract(defecto);
 		}
 	}
 

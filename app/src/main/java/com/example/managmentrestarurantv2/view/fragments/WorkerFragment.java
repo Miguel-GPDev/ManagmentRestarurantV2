@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.*;
+
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -54,6 +56,8 @@ public class WorkerFragment extends Fragment {
     ConstraintLayout constraintLayoutTelephone;
     ConstraintLayout constraintLayoutDates;
     ConstraintLayout constraintLayoutEmail;
+
+    CardView  cardViewWorker;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -130,6 +134,8 @@ public class WorkerFragment extends Fragment {
         constraintLayoutInfoWorker = (ConstraintLayout) v.findViewById(R.id.ConstraintLayoutInfoWorker);
         constraintLayoutTelephone = (ConstraintLayout) v.findViewById(R.id.ConstraintLayoutTelephone);
         constraintLayoutEmail = (ConstraintLayout) v.findViewById(R.id.ConstraintLayoutEmail);
+
+        cardViewWorker =(CardView) v.findViewById(R.id.cardViewWorkerView);
 
         imageViewCalendarWorker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -277,7 +283,7 @@ public class WorkerFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                worker.setVariable2(editTextDataworker.getText().toString());
+                worker.setDateContract(editTextDataworker.getText().toString());
             }
         });
         editTextContracWorker.addTextChangedListener(new TextWatcher() {

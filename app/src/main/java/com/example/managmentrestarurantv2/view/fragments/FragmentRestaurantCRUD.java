@@ -319,6 +319,7 @@ public class FragmentRestaurantCRUD extends Fragment {
                     recyclerViewTable.setVisibility(View.GONE);
                 }else {
                     constraintLayoutTable.setVisibility(View.VISIBLE);
+                    recyclerViewTable.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -330,6 +331,7 @@ public class FragmentRestaurantCRUD extends Fragment {
                     recyclerViewBar.setVisibility(View.GONE);
                 }else {
                     constraintLayoutBar.setVisibility(View.VISIBLE);
+                    recyclerViewBar.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -341,6 +343,7 @@ public class FragmentRestaurantCRUD extends Fragment {
                     recyclerViewKitchen.setVisibility(View.GONE);
                 }else{
                     constraintLayoutKitchen.setVisibility(View.VISIBLE);
+                    recyclerViewKitchen.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -352,6 +355,7 @@ public class FragmentRestaurantCRUD extends Fragment {
                     recyclerViewWorker.setVisibility(View.GONE);
                 }else {
                     constraintLayoutWorker.setVisibility(View.VISIBLE);
+                    recyclerViewWorker.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -495,13 +499,13 @@ public class FragmentRestaurantCRUD extends Fragment {
     private void addTableList(Table table) {
         tableList.add(table);
         uploadAdapterTable(tableList);
-        lastPositionRV();
+
     }
 
     private void uploadAdapterTable(List<Table> tableList) {
         recyclerViewTable.setLayoutManager(new LinearLayoutManager(getContext()
                 ,LinearLayoutManager.VERTICAL
-                ,false));
+                ,true));
         table_adapter = new Table_Adapter(tableList);
         recyclerViewTable.setAdapter(table_adapter);
     }
@@ -612,8 +616,5 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     public void setRestaurantList(List<Restaurant> restaurantList) {
         this.restaurantList = restaurantList;
-    }
-    private void lastPositionRV(){
-        recyclerViewTable.scrollToPosition(tableList.size() - 1);
     }
 }

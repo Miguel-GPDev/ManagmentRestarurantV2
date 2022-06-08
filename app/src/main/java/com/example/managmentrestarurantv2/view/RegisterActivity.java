@@ -1,6 +1,5 @@
 package com.example.managmentrestarurantv2.view;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
                     user.setTelefono("000000000");
                     user.setType("1");
                     user.setVariable1("empty");
-                    user.setVariable2("empty");
+                    user.setDateContract("empty");
 
                     UserController userController = new UserController();
                     userController.createUser(user);

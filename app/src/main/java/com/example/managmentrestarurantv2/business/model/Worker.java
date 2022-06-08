@@ -16,16 +16,16 @@ public class Worker extends User {
 	String state;
 	String workPlace;
 	String idBoss;
-	String variable2;
+	String dateContract;
 
 	public Worker() {
 	}
 
 	public Worker(String id, String email, String telefono, String type
-			, String variable1, String variable2) {
-		super(id, email, telefono, type, variable1, variable2);
+			, String variable1, String dateContract) {
+		super(id, email, telefono, type, variable1, dateContract);
 	}
-	public Worker(String nif, String name, String surname1, String surname2, String address, int contract, String charge, String idRestaurant, String state, String workPlace, String idBoss, String variable2) {
+	public Worker(String nif, String name, String surname1, String surname2, String address, int contract, String charge, String idRestaurant, String state, String workPlace, String idBoss, String dateContract) {
 		this.nif = nif;
 		this.name = name;
 		this.surname1 = surname1;
@@ -37,14 +37,14 @@ public class Worker extends User {
 		this.state = state;
 		this.workPlace = workPlace;
 		this.idBoss = idBoss;
-		this.variable2 = variable2;
+		this.dateContract = dateContract;
 	}
 
 	public Worker(String id, String email, String telefono, String type, String variable1
-			, String variable2, String nif, String name, String surname1, String surname2
+			, String dateContract, String nif, String name, String surname1, String surname2
 			, String address, int contract, String charge, String idRestaurant, String state
 			, String workPlace, String idBoss, String variable21) {
-		super(id, email, telefono, type, variable1, variable2);
+		super(id, email, telefono, type, variable1, dateContract);
 		this.nif = nif;
 		this.name = name;
 		this.surname1 = surname1;
@@ -56,7 +56,7 @@ public class Worker extends User {
 		this.state = state;
 		this.workPlace = workPlace;
 		this.idBoss = idBoss;
-		this.variable2 = variable21;
+		this.dateContract = variable21;
 	}
 
 	public String getNif() {
@@ -148,13 +148,13 @@ public class Worker extends User {
 	}
 
 	@Override
-	public String getVariable2() {
-		return variable2;
+	public String getDateContract() {
+		return dateContract;
 	}
 
 	@Override
-	public void setVariable2(String variable2) {
-		this.variable2 = variable2;
+	public void setDateContract(String dateContract) {
+		this.dateContract = dateContract;
 	}
 
 	@Override
@@ -186,7 +186,7 @@ public class Worker extends User {
 				", state='" + state + '\'' +
 				", workPlace='" + workPlace + '\'' +
 				", idBoss='" + idBoss + '\'' +
-				", variable2='" + variable2 + '\'' +
+				", variable2='" + dateContract + '\'' +
 				'}';
 	}
 }

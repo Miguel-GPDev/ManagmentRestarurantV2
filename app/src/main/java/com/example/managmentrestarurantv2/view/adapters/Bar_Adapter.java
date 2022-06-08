@@ -19,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.managmentrestarurantv2.R;
 import com.example.managmentrestarurantv2.business.model.Bar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
     List<Bar> barList;
+    List<Bar_Adapter.barHolder> barHolderList = new ArrayList<>();
 
     public Bar_Adapter(List<Bar> barList) {
         this.barList = barList;
@@ -50,7 +52,13 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         holder.aSwitchLocation.setChecked(bar.getLocation());
         holder.aSwitchUnion.setChecked(bar.getUnion());
 
-        colorCardview(holder, bar);
+        holder.cardViewBar.setCardBackgroundColor(Color.GREEN);
+        holder.cardViewBar.setRotationX(10);
+
+        barHolderList.add(holder);
+        if (position + 1 == getItemCount()){
+            asignColor(position);
+        }
 
 
         holder.editTextIdBar.addTextChangedListener(new TextWatcher() {
@@ -68,7 +76,8 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             public void afterTextChanged(Editable s) {
                 try {
                     barList.get(position ).setIdBar(holder.editTextIdBar.getText().toString());
-                    colorCardview(holder, bar);
+                    allGreen();
+                    asignColor(getItemCount() - 1);
                 }catch (Exception e){
                     //TODO
                 }
@@ -89,7 +98,6 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             public void afterTextChanged(Editable s) {
                 try {
                     barList.get(position).setSize(Integer.valueOf(holder.editTextNSeatsBar.getText().toString()));
-                    colorCardview(holder, bar);
                 }catch (Exception e){
                     //TODO
                 }
@@ -134,6 +142,29 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
         return barList.size();
     }
 
+    private void asignColor(int position) {
+        if (getItemCount() -1  == position ){
+            for (int i = 0 ; i < barList.size() ; i++){
+                for (int j =  i + 1  ; j < barList.size() ; j++) {
+                    if (barList.get(i).getIdBar().equals(barList.get(j).getIdBar())){
+                        barHolderList.get(i)
+                                .cardViewBar.setCardBackgroundColor(Color.RED);
+                        barHolderList.get(j)
+                                .cardViewBar.setCardBackgroundColor(Color.RED);
+                    }
+                }
+            }
+        }
+    }
+    private void allGreen(){
+        if (barHolderList != null){
+            for (Bar_Adapter.barHolder h : barHolderList){
+                h.cardViewBar.setCardBackgroundColor(Color.GREEN);
+            }
+        }
+    }
+
+
     public class barHolder extends RecyclerView.ViewHolder {
         EditText editTextIdBar;
         EditText editTextNSeatsBar;
@@ -159,25 +190,7 @@ public class Bar_Adapter extends RecyclerView.Adapter<Bar_Adapter.barHolder> {
             cardViewBar = (CardView) itemView.findViewById(R.id.cardViewBarView);
         }
     }
-    private void colorCardview(Bar_Adapter.barHolder holder, Bar bar) {
-        if (verifyId(bar.getIdBar())){
-            holder.cardViewBar.setCardBackgroundColor(Color.GREEN);
-        }else{
-            holder.cardViewBar.setCardBackgroundColor(Color.RED);
-        }
-    }
 
-    public Boolean verifyId(String id){
-        Boolean isValid = null;
-        for (Bar bar : barList){
-            if (bar.getIdBar().equals(id)){
-                isValid = false;
-            }else{
-                isValid = true;
-            }
-        }
-        return  isValid;
-    }
     public List<Bar> getBarList() {
         return barList;
     }

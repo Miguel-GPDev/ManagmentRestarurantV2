@@ -53,6 +53,7 @@ public class Table_Adapter extends RecyclerView.Adapter<Table_Adapter.tableViewH
         holder.aSwitchUnion.setChecked(table.getUnion());
 
         holder.cardViewTable.setCardBackgroundColor(Color.GREEN);
+        holder.cardViewTable.setRotationX(10);
 
         tableViewHolderList.add(holder);
         if (position + 1 == getItemCount()){

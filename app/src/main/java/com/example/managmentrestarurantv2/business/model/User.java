@@ -66,12 +66,12 @@ public class User implements Serializable {
 		this.variable1 = variable1;
 	}
 
-	public String getVariable2() {
+	public String getDateContract() {
 		return variable2;
 	}
 
-	public void setVariable2(String variable2) {
-		this.variable2 = variable2;
+	public void setDateContract(String dateContract) {
+		this.variable2 = dateContract;
 	}
 
 	@Override
