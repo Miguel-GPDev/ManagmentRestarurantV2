@@ -153,6 +153,8 @@ public class Kitchen_Adapter extends RecyclerView.Adapter<Kitchen_Adapter.kitche
 
             imageViewTrashKitchen = (ImageView) itemView
                     .findViewById(R.id.imageViewTrashKitchen);
+
+            cardViewKitchen = (CardView) itemView.findViewById(R.id.cardViewKitchenView);
         }
     }
 

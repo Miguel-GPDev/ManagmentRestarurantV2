@@ -8,8 +8,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.managmentrestarurantv2.business.model.Bar;
+import com.example.managmentrestarurantv2.business.model.Booking;
+import com.example.managmentrestarurantv2.business.model.Client;
+import com.example.managmentrestarurantv2.business.model.Kitchen;
+import com.example.managmentrestarurantv2.business.model.MenuRestaurant;
+import com.example.managmentrestarurantv2.business.model.Product;
+import com.example.managmentrestarurantv2.business.model.Restaurant;
+import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
+import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.User;
+import com.example.managmentrestarurantv2.business.model.Worker;
 import com.example.managmentrestarurantv2.integration.CallBackFirebase;
+import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
+import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
 import com.example.managmentrestarurantv2.integration.impl.UserRepositoryFirebaseImpl;
 import com.example.managmentrestarurantv2.view.DashBoardActivity;
 import com.example.managmentrestarurantv2.view.DashBoardWorkerActivity;
@@ -19,6 +31,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonSigIn;
@@ -41,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         editTextUser = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
-
+        createRestaurant();
         buttonSigIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,5 +122,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void createRestaurant(){
+        RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseImpl();
+         String idRestaurant = "Tapas";
+         String telephone = "607377931";
+         String email = "miguel.@gamil.com";
+         Map<String, Table> listTables = new HashMap<String, Table>() ;
+         Map <String, Worker> listWorkers = new HashMap<String, Worker>();
+         Map <String, Kitchen> listKitchen = new HashMap<String, Kitchen>();
+         Map <String, Bar> lisBar = new HashMap<String, Bar>();
+         Map <String, Client> listClient = new HashMap<String, Client>();
+         Map <String, MenuRestaurant> listMenus = new HashMap<String, MenuRestaurant>();
+         Map <String, SupplierRestaurant> listSuppliers = new HashMap<String, SupplierRestaurant>();
+         Map <String, Booking> listBookings = new HashMap<String,Booking>();
+         Map <String, Product> listProducts = new HashMap<String, Product>();
+         String status = "Open";
+         String name = "Tapas";
+         String variable2 = "";
+         String variable3 = "";
+        Restaurant restaurant = new Restaurant(idRestaurant,telephone,email,listTables
+                ,listWorkers,listKitchen,lisBar,listClient
+                ,listMenus,listSuppliers,listBookings
+                ,listProducts,status,name,variable2,variable3);
+        restaurantRepositoryFirebase.create(restaurant);
+
     }
 }

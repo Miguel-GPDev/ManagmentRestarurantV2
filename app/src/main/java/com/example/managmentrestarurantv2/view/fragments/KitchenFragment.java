@@ -81,6 +81,7 @@ public class KitchenFragment extends Fragment {
         editTextNWorkersKitchen = (EditText) v.findViewById(R.id.editTextNWorkersKitchen);
 
         aSwitchOpenKitchen = (Switch) v.findViewById(R.id.switchOpenKitchen);
+        kitchen.setOpen(aSwitchOpenKitchen.isChecked());
 
         editTextIdKitchen.addTextChangedListener(new TextWatcher() {
             @Override
