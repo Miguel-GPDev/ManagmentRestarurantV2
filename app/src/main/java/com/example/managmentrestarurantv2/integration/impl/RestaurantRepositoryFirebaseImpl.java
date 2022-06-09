@@ -28,6 +28,7 @@ public class RestaurantRepositoryFirebaseImpl implements RestaurantRepositoryFir
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         idRestaurante =databaseReference.push().getKey();
+        restaurant.setIdRestaurant(idRestaurante);
         return  databaseReference.child("Users")
                 .child(mAuth.getUid())
                 .child("Restaurants")

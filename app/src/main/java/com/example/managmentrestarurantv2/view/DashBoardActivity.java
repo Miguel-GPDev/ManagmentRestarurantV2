@@ -34,6 +34,7 @@ public class DashBoardActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private List<Restaurant> restaurantList = new ArrayList<>();
+    private Restaurant restaurant ;
     private Spinner spinnerRestaurantList;
 
     @Override
@@ -99,7 +100,7 @@ public class DashBoardActivity extends AppCompatActivity {
         spinnerRestaurantList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Restaurant r = (Restaurant) parent.getItemAtPosition(position);
+                restaurant = (Restaurant) parent.getItemAtPosition(position);
                 //TODO
                 //MOSTRAR LOS BOTONES PARA LAS POSIBLES ACCIONES
             }

@@ -146,6 +146,5 @@ public class MainActivity extends AppCompatActivity {
                 ,listMenus,listSuppliers,listBookings
                 ,listProducts,status,name,variable2,variable3);
         restaurantRepositoryFirebase.create(restaurant);
-
     }
 }
