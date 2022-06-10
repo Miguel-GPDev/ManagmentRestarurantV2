@@ -2,4 +2,26 @@
     <string name="app_name">ManagmentRestarurantV2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Cargos">
+        <item>Camarero</item>
+        <item>Ayudante de camarero</item>
+        <item>Chef</item>
+        <item>Barman</item>
+        <item>Ayudante de Cocina</item>
+    </string-array>
+
+    <string-array name="Puestos">
+        <item>Salon</item>
+        <item>Terraza</item>
+        <item>Cocina</item>
+        <item>Barra</item>
+    </string-array>
+
+    <string-array name="Estado">
+        <item>Alta</item>
+        <item>Baja por enfermedad</item>
+        <item>Despedido</item>
+    </string-array>
+
 </resources>

@@ -535,14 +535,15 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/RVWorker"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.87"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cardViewWorkerExpand">
+                        android:id="@+id/RVWorker"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.87"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardViewWorkerExpand">
 
                     </androidx.recyclerview.widget.RecyclerView>
 

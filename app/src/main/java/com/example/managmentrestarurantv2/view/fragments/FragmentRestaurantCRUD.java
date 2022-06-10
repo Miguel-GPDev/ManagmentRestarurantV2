@@ -559,7 +559,7 @@ public class FragmentRestaurantCRUD extends Fragment {
 
     private void workerFragment(){
         AppCompatActivity activity = (AppCompatActivity) getContext();
-        WorkerFragment workerFragment = new WorkerFragment();
+        workerFragment = new WorkerFragment();
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayoutWorker,workerFragment);
@@ -597,8 +597,8 @@ public class FragmentRestaurantCRUD extends Fragment {
         Boolean isOk = false;
         if(getRestaurantList().size() > 0){
             for (Restaurant restaurant1 : getRestaurantList()){
-                if (id.equals(editTextIdRestaurante.getText().toString())){
-                    Toast.makeText(getContext(), "Cambia el Id", Toast.LENGTH_SHORT).show();
+                if (id.equals(restaurant1.getName())){
+                    Toast.makeText(getContext(), "El nombre del Restaurante ya existe, por favor cambialo", Toast.LENGTH_SHORT).show();
                     isOk = false;
                 }
                 else{

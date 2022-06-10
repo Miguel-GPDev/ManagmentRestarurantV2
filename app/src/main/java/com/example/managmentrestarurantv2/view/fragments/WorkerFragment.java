@@ -1,5 +1,6 @@
 package com.example.managmentrestarurantv2.view.fragments;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -348,7 +349,7 @@ public class WorkerFragment extends Fragment {
         spinnerRestauratnWorker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                worker.setIdRestaurant(spinnerRestauratnWorker.getSelectedItem().toString());
+                worker.setName(spinnerRestauratnWorker.getSelectedItem().toString());
             }
 
             @Override
@@ -368,8 +369,37 @@ public class WorkerFragment extends Fragment {
             }
         });
 
+        loadSpinnerChargeWorker();
+        loadSpinnerStatusWorker();
+        loadSpinnerWorksPlace();
+
         return v;
     }
+    private void loadSpinnerChargeWorker(){
+        Resources resources = getResources();
+        String [] arrayChargeWorker = resources.getStringArray(R.array.Cargos);
+
+        ArrayAdapter<String> chargeWorkerAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, arrayChargeWorker);
+        spinnerChargeWorker.setAdapter(chargeWorkerAdapter);
+        worker.setCharge(spinnerChargeWorker.getSelectedItem().toString());
+    }
+    private void loadSpinnerStatusWorker(){
+        Resources resources = getResources();
+        String [] arrayStatusWorker = resources.getStringArray(R.array.Estado);
+
+        ArrayAdapter<String> statusWorkerAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, arrayStatusWorker);
+        spinnerStatusWorker.setAdapter(statusWorkerAdapter);
+        worker.setState(spinnerStatusWorker.getSelectedItem().toString());
+    }
+    private void loadSpinnerWorksPlace(){
+        Resources resources = getResources();
+        String [] arrayWorksPlaces = resources.getStringArray(R.array.Puestos);
+
+        ArrayAdapter<String> worksPlaceAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, arrayWorksPlaces);
+        spinnerWorkPlace.setAdapter(worksPlaceAdapter);
+        worker.setWorkPlace(spinnerWorkPlace.getSelectedItem().toString());
+    }
+
     private void closeVisibilityAll(){
         constraintLayoutInfoWorker.setVisibility(View.GONE);
         constraintLayoutCalendar.setVisibility(View.GONE);

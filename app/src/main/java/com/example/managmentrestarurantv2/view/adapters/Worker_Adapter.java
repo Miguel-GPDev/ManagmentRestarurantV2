@@ -1,12 +1,17 @@
 package com.example.managmentrestarurantv2.view.adapters;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -15,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.managmentrestarurantv2.R;
@@ -33,6 +40,7 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
         this.workerList = workerList;
     }
 
+
     @NonNull
     @Override
     public Worker_Adapter.workerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,7 +53,7 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
     public void onBindViewHolder(@NonNull Worker_Adapter.workerHolder holder, int position) {
         Worker worker = workerList.get(position);
         holder.editTextAdressWorker.setText(worker.getAddress());
-        holder.editTextContracWorker.setText(worker.getContract());
+        holder.editTextContracWorker.setText(String.valueOf(worker.getContract()));
         holder.editTextEmailworker.setText(worker.getEmail());
         holder.editTextDataworker.setText(worker.getDateContract());
         holder.editTextNameWorker.setText(worker.getName());
@@ -55,8 +63,113 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
         holder.editTextPhoneWorker.setText(worker.getTelefono());
 
         holder.cardViewWorker.setCardBackgroundColor(Color.GREEN);
-        holder.cardViewWorker.setRotationX(10);
+        holder.cardViewWorker.setRotationX(2);
 
+        loadSpinnerChargeWorker(holder, worker);
+        loadSpinnerStatusWorker(holder, worker);
+        loadSpinnerWorksPlace(holder, worker);
+        closeVisibilityAll(holder);
+
+        holder.spinnerStatusWorker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                workerList.get(position).setState(holder.spinnerStatusWorker.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        holder.spinnerRestauratnWorker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                workerList.get(position).setName(holder.spinnerRestauratnWorker.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        holder.spinnerChargeWorker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                workerList.get(position).setCharge(holder.spinnerChargeWorker.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        holder.imageViewCalendarWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeVisibilityAll(holder);
+                holder.constraintLayoutCalendar.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.imageViewDatesWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeVisibilityAll(holder);
+                holder.constraintLayoutDates.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.imageViewInfoWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeVisibilityAll(holder);
+                holder.constraintLayoutInfoWorker.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.imageViewTelephoneWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeVisibilityAll(holder);
+                holder.constraintLayoutTelephone.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.imageViewEmailWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeVisibilityAll(holder);
+                holder.constraintLayoutEmail.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+    private void closeVisibilityAll(@NonNull workerHolder holder){
+        holder.constraintLayoutInfoWorker.setVisibility(View.GONE);
+        holder.constraintLayoutCalendar.setVisibility(View.GONE);
+        holder.constraintLayoutTelephone.setVisibility(View.GONE);
+        holder.constraintLayoutDates.setVisibility(View.GONE);
+        holder.constraintLayoutEmail.setVisibility(View.GONE);
+    }
+
+
+    private void loadSpinnerChargeWorker(@NonNull workerHolder holder, Worker worker) {
+        Resources resources = holder.context.getResources();
+        String [] arrayChargeWorker = resources.getStringArray(R.array.Cargos);
+        ArrayAdapter<String> chargeWorkerAdapter = new ArrayAdapter<String>(holder.context, android.R.layout.simple_dropdown_item_1line, arrayChargeWorker);
+        holder.spinnerChargeWorker.setAdapter(chargeWorkerAdapter);
+        worker.setCharge(holder.spinnerChargeWorker.getSelectedItem().toString());
+    }
+    private void loadSpinnerStatusWorker(@NonNull workerHolder holder, Worker worker) {
+        Resources resources = holder.context.getResources();
+        String [] arrayStatusWorker = resources.getStringArray(R.array.Estado);
+        ArrayAdapter<String> statusWorkerAdapter = new ArrayAdapter<String>(holder.context, android.R.layout.simple_dropdown_item_1line, arrayStatusWorker);
+        holder.spinnerStatusWorker.setAdapter(statusWorkerAdapter);
+        worker.setState(holder.spinnerStatusWorker.getSelectedItem().toString());
+    }
+    private void loadSpinnerWorksPlace(@NonNull workerHolder holder, Worker worker) {
+        Resources resources = holder.context.getResources();
+        String [] arrayWorksPlaces = resources.getStringArray(R.array.Puestos);
+        ArrayAdapter<String> workerPlaceAdapter = new ArrayAdapter<String>(holder.context, android.R.layout.simple_dropdown_item_1line, arrayWorksPlaces);
+        holder.spinnerWorkPlace.setAdapter(workerPlaceAdapter);
+        worker.setWorkPlace(holder.spinnerWorkPlace.getSelectedItem().toString());
     }
 
     @Override
@@ -104,8 +217,26 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
 
         CardView cardViewWorker;
 
+        ImageView imageViewCalendarWorker;
+        ImageView imageViewTelephoneWorker;
+        ImageView imageViewInfoWorker;
+        ImageView imageViewTrashWorker;
+        ImageView imageViewDatesWorker;
+        ImageView imageViewEmailWorker;
+        ImageView imageViewPhotoWorker;
+
+        ConstraintLayout constraintLayoutInfoWorker;
+        ConstraintLayout constraintLayoutCalendar;
+        ConstraintLayout constraintLayoutTelephone;
+        ConstraintLayout constraintLayoutDates;
+        ConstraintLayout constraintLayoutEmail;
+
+        Context context;
+
         public workerHolder(@NonNull View itemView) {
             super(itemView);
+            context = (Context)itemView.getContext();
+
             spinnerChargeWorker = (Spinner) itemView.findViewById(R.id.spinner4ChargeWorker);
             spinnerRestauratnWorker = (Spinner) itemView.findViewById(R.id.spinner2RestaurantWorker);
             spinnerStatusWorker = (Spinner) itemView.findViewById(R.id.spinnerStatusWorker);
@@ -121,7 +252,22 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
             editTextPhoneWorker = (EditText) itemView.findViewById(R.id.editTextPhoneWorker);
             editTextAdressWorker = (EditText) itemView.findViewById(R.id.editTextTextAdressWorker);
 
+            imageViewCalendarWorker = (ImageView) itemView.findViewById(R.id.imageView22CalendarWorker);
+            imageViewDatesWorker = (ImageView) itemView.findViewById(R.id.imageView19DatesWorker);
+            imageViewEmailWorker = (ImageView) itemView.findViewById(R.id.imageView18EmailWorker);
+            imageViewInfoWorker = (ImageView) itemView.findViewById(R.id.imageView23InfoWorker);
+            imageViewTelephoneWorker = (ImageView) itemView.findViewById(R.id.imageView21TelephoneWorker);
+            imageViewTrashWorker = (ImageView) itemView.findViewById(R.id.imageView20TrashWorker);
+            imageViewPhotoWorker = (ImageView) itemView.findViewById(R.id.imageView17PhotoWorker);
+
             cardViewWorker =(CardView) itemView.findViewById(R.id.cardViewWorkerView);
+
+            constraintLayoutCalendar = (ConstraintLayout) itemView.findViewById(R.id.ConstraintLayoutCalendar);
+            constraintLayoutDates = (ConstraintLayout) itemView.findViewById(R.id.ConstraintLayoutDates);
+            constraintLayoutInfoWorker = (ConstraintLayout) itemView.findViewById(R.id.ConstraintLayoutInfoWorker);
+            constraintLayoutTelephone = (ConstraintLayout) itemView.findViewById(R.id.ConstraintLayoutTelephone);
+            constraintLayoutEmail = (ConstraintLayout) itemView.findViewById(R.id.ConstraintLayoutEmail);
+
         }
     }
 
