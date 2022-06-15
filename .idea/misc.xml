@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/activity_dash_board.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/fragment_restaurant_c_r_u_d.xml" value="0.2" />
         <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/view_bar.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/view_kitchen.xml" value="0.33469202898550726" />
         <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/view_table.xml" value="0.33469202898550726" />
         <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/layout/view_worker.xml" value="0.33469202898550726" />
+        <entry key="..\:/Users/miguel/AndroidStudioProjects/ManagmentRestarurantV3/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.195" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.19270833333333334" />

@@ -37,7 +37,9 @@ import com.example.managmentrestarurantv2.business.model.SupplierRestaurant;
 import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.Worker;
 import com.example.managmentrestarurantv2.integration.RestaurantRepositoryFirebase;
+import com.example.managmentrestarurantv2.integration.WorkerRepositoryFirebase;
 import com.example.managmentrestarurantv2.integration.impl.RestaurantRepositoryFirebaseImpl;
+import com.example.managmentrestarurantv2.integration.impl.WorkerRepositoryFirebaseImpl;
 import com.example.managmentrestarurantv2.view.adapters.Bar_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Kitchen_Adapter;
 import com.example.managmentrestarurantv2.view.adapters.Table_Adapter;
@@ -420,65 +422,86 @@ public class FragmentRestaurantCRUD extends Fragment {
     }
 
     private void createWorkers(Worker worker) {
+        WorkerRepositoryFirebase workerRepositoryFirebase = new WorkerRepositoryFirebaseImpl();
+        workerRepositoryFirebase.create(worker);
 
     }
 
     private Boolean isOkWorkerList(List<Worker> workerList) {
         boolean isOk = false;
-        for (int i = 0 ; i < workerList.size() ; i++){
-            for (int j = i + 1 ; j < workerList.size() ; j++){
-                if (workerList.get(i).getId().equals(workerList.get(j).getId())){
-                    isOk = false;
-                }
-                else{
-                    isOk = true;
+        if (workerList.size() > 1){
+            for (int i = 0 ; i < workerList.size() ; i++){
+                for (int j = i + 1 ; j < workerList.size() ; j++){
+                    if (workerList.get(i).getId().equals(workerList.get(j).getId())){
+                        isOk = false;
+                    }
+                    else{
+                        isOk = true;
+                    }
                 }
             }
+        }else{
+            isOk = true;
         }
         return isOk;
     }
 
     private Boolean isOkKitchenList(List<Kitchen> kitchenList) {
         boolean isOk = false;
-        for (int i = 0 ; i < kitchenList.size() ; i++){
-            for (int j = i + 1 ; j < kitchenList.size() ; j++){
-                if (kitchenList.get(i).getIdKitchen().equals(kitchenList.get(j).getIdKitchen())){
-                    isOk = false;
-                }
-                else{
-                    isOk = true;
+        if (kitchenList.size() > 1){
+            for (int i = 0 ; i < kitchenList.size() ; i++){
+                for (int j = i + 1 ; j < kitchenList.size() ; j++){
+                    if (kitchenList.get(i).getIdKitchen().equals(kitchenList.get(j).getIdKitchen())){
+                        isOk = false;
+                    }
+                    else{
+                        isOk = true;
+                    }
                 }
             }
+        }else {
+            isOk = true;
         }
         return isOk;
     }
 
     private Boolean isOkBarList(List<Bar> barList) {
         boolean isOk = false;
-        for (int i = 0 ; i < barList.size() ; i++){
-            for (int j = i + 1 ; j < barList.size() ; j++){
-                if (barList.get(i).getIdBar().equals(barList.get(j).getIdBar())){
-                    isOk = false;
-                }
-                else{
-                    isOk = true;
+        if (barList.size() > 1){
+            for (int i = 0 ; i < barList.size() ; i++){
+                for (int j = i + 1 ; j < barList.size() ; j++){
+                    if (barList.get(i).getIdBar().equals(barList.get(j).getIdBar())){
+                        isOk = false;
+                    }
+                    else{
+                        isOk = true;
+                    }
                 }
             }
+
+        }else {
+            isOk = true;
         }
+
         return isOk;
     }
 
     private Boolean isOkTableList(List<Table> tableList) {
         boolean isOk = false;
-        for (int i = 0 ; i < tableList.size() ; i++){
-            for (int j = i + 1 ; j < tableList.size() ; j++){
-                if (tableList.get(i).getIdMesa().equals(tableList.get(j).getIdMesa())){
-                    isOk = false;
-                }
-                else{
-                    isOk = true;
+        if (tableList.size() > 1){
+            for (int i = 0 ; i < tableList.size() ; i++){
+                for (int j = i + 1 ; j < tableList.size() ; j++){
+                    if (tableList.get(i).getIdMesa().equals(tableList.get(j).getIdMesa())){
+                        isOk = false;
+                    }
+                    else{
+                        isOk = true;
+                    }
                 }
             }
+        }
+        else{
+            isOk = true;
         }
         return isOk;
     }

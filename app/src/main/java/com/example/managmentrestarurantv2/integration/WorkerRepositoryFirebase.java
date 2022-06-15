@@ -1,12 +1,14 @@
 package com.example.managmentrestarurantv2.integration;
 
-import com.example.managmentrestarurantv2.business.model.Restaurant;
 import com.example.managmentrestarurantv2.business.model.Worker;
+import com.google.android.gms.tasks.Task;
+
+import java.util.List;
 
 public interface WorkerRepositoryFirebase {
-    Boolean create (Worker worker);
+    Task<String> create (Worker worker);
     void read (String idWorker, CallBackFirebase callBackFirebase);
-    Boolean update (String idWorker);
+    Boolean update (Worker worker);
     Boolean delete (String idWorker);
-    void getAll (String idUser, CallBackFirebase callBackFirebase);
+    List<Worker> getAll (String idUser, CallBackFirebase callBackFirebase);
 }

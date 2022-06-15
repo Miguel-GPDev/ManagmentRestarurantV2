@@ -1,33 +1,23 @@
 package com.example.managmentrestarurantv2.view.adapters;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.managmentrestarurantv2.R;
-import com.example.managmentrestarurantv2.business.model.Table;
 import com.example.managmentrestarurantv2.business.model.Worker;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +29,6 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
     public Worker_Adapter(List<Worker> workerList) {
         this.workerList = workerList;
     }
-
 
     @NonNull
     @Override
@@ -139,8 +128,8 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
                 holder.constraintLayoutEmail.setVisibility(View.VISIBLE);
             }
         });
-
     }
+
     private void closeVisibilityAll(@NonNull workerHolder holder){
         holder.constraintLayoutInfoWorker.setVisibility(View.GONE);
         holder.constraintLayoutCalendar.setVisibility(View.GONE);
@@ -149,7 +138,6 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
         holder.constraintLayoutEmail.setVisibility(View.GONE);
     }
 
-
     private void loadSpinnerChargeWorker(@NonNull workerHolder holder, Worker worker) {
         Resources resources = holder.context.getResources();
         String [] arrayChargeWorker = resources.getStringArray(R.array.Cargos);
@@ -157,6 +145,7 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
         holder.spinnerChargeWorker.setAdapter(chargeWorkerAdapter);
         worker.setCharge(holder.spinnerChargeWorker.getSelectedItem().toString());
     }
+
     private void loadSpinnerStatusWorker(@NonNull workerHolder holder, Worker worker) {
         Resources resources = holder.context.getResources();
         String [] arrayStatusWorker = resources.getStringArray(R.array.Estado);
@@ -164,6 +153,7 @@ public class Worker_Adapter extends RecyclerView.Adapter<Worker_Adapter.workerHo
         holder.spinnerStatusWorker.setAdapter(statusWorkerAdapter);
         worker.setState(holder.spinnerStatusWorker.getSelectedItem().toString());
     }
+
     private void loadSpinnerWorksPlace(@NonNull workerHolder holder, Worker worker) {
         Resources resources = holder.context.getResources();
         String [] arrayWorksPlaces = resources.getStringArray(R.array.Puestos);

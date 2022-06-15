@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         editTextUser = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
-        createRestaurant();
         buttonSigIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,29 +121,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-    private void createRestaurant(){
-        RestaurantRepositoryFirebase restaurantRepositoryFirebase = new RestaurantRepositoryFirebaseImpl();
-         String idRestaurant = "Tapas";
-         String telephone = "607377931";
-         String email = "miguel.@gamil.com";
-         Map<String, Table> listTables = new HashMap<String, Table>() ;
-         Map <String, Worker> listWorkers = new HashMap<String, Worker>();
-         Map <String, Kitchen> listKitchen = new HashMap<String, Kitchen>();
-         Map <String, Bar> lisBar = new HashMap<String, Bar>();
-         Map <String, Client> listClient = new HashMap<String, Client>();
-         Map <String, MenuRestaurant> listMenus = new HashMap<String, MenuRestaurant>();
-         Map <String, SupplierRestaurant> listSuppliers = new HashMap<String, SupplierRestaurant>();
-         Map <String, Booking> listBookings = new HashMap<String,Booking>();
-         Map <String, Product> listProducts = new HashMap<String, Product>();
-         String status = "Open";
-         String name = "Tapas";
-         String variable2 = "";
-         String variable3 = "";
-        Restaurant restaurant = new Restaurant(idRestaurant,telephone,email,listTables
-                ,listWorkers,listKitchen,lisBar,listClient
-                ,listMenus,listSuppliers,listBookings
-                ,listProducts,status,name,variable2,variable3);
-        restaurantRepositoryFirebase.create(restaurant);
     }
 }
